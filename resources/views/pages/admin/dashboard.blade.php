@@ -14,7 +14,8 @@
                 <p class="text-md text-blue-600">Semangat mengelola data hari ini! 🚀</p>
             </div>
             <div class="ml-auto">
-                <img src="{{ asset('image/undraw_creative-flow_t3kz.png') }}" alt="Creative Flow" width="200" class="ml-4">
+                <img src="{{ asset('image/undraw_creative-flow_t3kz.png') }}" alt="Creative Flow" width="200"
+                    class="ml-4">
             </div>
         </div>
     </div>
@@ -46,6 +47,23 @@
                 <h1 class="text-4xl font-bold text-red-500">90</h1>
             </div>
             <p class="font-semibold text-red-500 mt-4">Perlu Diverifikasi</p>
+        </div>
+
+        <!-- Chart Section -->
+        <div class="flex flex-row space-x-4 mt-10">
+            <div class="bg-white p-6 rounded-lg shadow-md w-xl flex flex-col">
+                <h2 class="text-2xl font-bold mb-6 text-gray-800 text-center">Distribusi User</h2>
+                <div class="w-full aspect-square">
+                    <canvas id="pieChart" class="w-full h-full"></canvas>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-md w-xl flex flex-col">
+                <h2 class="text-2xl font-bold mb-6 text-gray-800 text-center">Statistik Pendapatan</h2>
+                <div class="w-full aspect-[4/3]">
+                    <canvas id="barChart" class="w-full h-full"></canvas>
+                </div>
+            </div>
         </div>
     </div>
 @endsection

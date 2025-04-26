@@ -7,6 +7,7 @@ use App\Http\Controllers\Produsen\MelihatPenawaranController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\admin\DashboardAdminController;
+use App\Http\Controllers\admin\PendapatanController;
 use App\Http\Controllers\admin\VerifikasiAdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Produsen\ProdusenController;
@@ -28,6 +29,7 @@ Route::get('/dashboard', function () {
 // LOGIN
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/cek-login', [LoginController::class, 'cekLogin'])->name('cek-login');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/register-produsen', [RegisterProdusenController::class, 'index'])->name('register-produsen');
 Route::post('/register-produsen', [RegisterProdusenController::class, 'storeRoleProdusen'])->name('register-produsen');
 
@@ -43,6 +45,7 @@ Route::post('/register-produsen', [RegisterProdusenController::class, 'storeRole
         Route::put('/verifikasi/kebutuhan/{id_kebutuhan_produsen}/ditolak', [VerifikasiAdminController::class, 'updateStatusKebutuhanDitolak'])->name('admin.verifikasi.statusKebutuhan-tolak');
         Route::put('/verifikasi/produk/{id_produk}/diterima', [VerifikasiAdminController::class, 'updateStatusProdukDiterima'])->name('admin.verifikasi.statusProduk-terima');
         Route::put('/verifikasi/produk/{id_produk}/ditolak', [VerifikasiAdminController::class, 'updateStatusProdukDitolak'])->name('admin.verifikasi.statusProduk-tolak');
+        Route::get('/pendapatan', [PendapatanController::class, 'index'])->name('admin.pendapatan');
     });
 
     Route::prefix('produsen')->group(function () {
