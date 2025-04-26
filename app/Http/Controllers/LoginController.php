@@ -14,6 +14,7 @@ class LoginController extends Controller
 
     public function cekLogin(Request $request)
     {
+    
         // dd($request->all());
         $request->validate([
             'email' => 'required',
@@ -29,13 +30,15 @@ class LoginController extends Controller
         ];
 
         if (Auth::attempt($cekLogoin)) {
-            $request->session()->regenerate();
-            // dd(Auth::user()->role);
+           
             if (Auth::user()->role == 'admin') {
+                $request->session()->regenerate();
                 return redirect()->route('admin.dashboard');
             } else if (Auth::user()->role == 'produsen') {
+
                 return redirect()->route('produsen.dashboard.index');
             } else if (Auth::user()->role == 'supplier') {
+
                 return redirect()->route('suplier.dashboard.index');
             }
         } else {

@@ -137,7 +137,7 @@
                                     {{ $loop->iteration }}
                                 </th>
                                 <td class="px-6 py-4">
-                                    {{ $p->users->nama }}
+                                    {{-- {{ $p->users->nama }} --}}
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $p->deskripsi_produk }}

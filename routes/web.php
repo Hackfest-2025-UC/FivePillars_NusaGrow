@@ -19,6 +19,7 @@ use App\Http\Controllers\supplier\DashboardSupplierController;
 use App\Http\Controllers\supplier\ProductSupplierController;
 use App\Http\Controllers\supplier\RequestProductSupplierController;
 use App\Http\Controllers\TransaksiController;
+use App\Http\Middleware\AuthToken;
 
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/products/detail/{id}', [ProductController::class, 'indexDetail'])->name('products.detail');
@@ -50,13 +51,13 @@ Route::prefix('admin')->group(function () {
     Route::put('/verifikasi/produk/{id_produk}/diterima', [VerifikasiAdminController::class, 'updateStatusProdukDiterima'])->name('admin.verifikasi.statusProduk-terima');
     Route::put('/verifikasi/produk/{id_produk}/ditolak', [VerifikasiAdminController::class, 'updateStatusProdukDitolak'])->name('admin.verifikasi.statusProduk-tolak');
     Route::get('/pendapatan', [PendapatanController::class, 'index'])->name('admin.pendapatan');
-})->middleware(['auth','auth-role:admin']);
+});
 
 Route::prefix('produsen')->group(function () {
     Route::get('/dashboard', [DashboardController::class, "index"])->name('produsen.dashboard.index');
     Route::get('/cari-suplier', [ProdusenController::class, "cariSuplier"])->name('produsen.cari-supplier.index');
     Route::get('melihat-penawaran', [ProdusenController::class, "penawaran"])->name('produsen.melihat-penawaran.index');
-})->middleware('auth');
+});
 Route::prefix('supplier')->group(function () {
     Route::get('/dashboard', [DashboardSupplierController::class, "index"])->name('suplier.dashboard.index');
 
@@ -66,7 +67,7 @@ Route::prefix('supplier')->group(function () {
     Route::get('/chat', [ChatSupplierController::class, "index"])->name('suplier.chat.index');
     Route::get('/cari-investor', [NLPController::class, "index"])->name('suplier.nlp.index');
     Route::post('/cari-investor', [NLPController::class, "index"])->name('suplier.nlp.index');
-})->middleware('auth');
+});
 Route::prefix('investor')->group(function () {
     Route::get('/dashboard', [DashboardInvestorController::class, "index"])->name('investor.dashboard.index');
 });

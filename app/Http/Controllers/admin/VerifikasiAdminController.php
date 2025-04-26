@@ -14,7 +14,7 @@ class VerifikasiAdminController extends Controller
     {
         return view('pages.admin.verifikasi', [
             "kebutuhan_produsen" => KebutuhanProdusen::with('produsen')->where('status', 'menunggu')->get(),
-            "produk" => Produk::with('users')->where('status', 'menunggu')->get()
+            "produk" => Produk::with('user')->where('status', 'menunggu')->get()
         ]);
     }
 
