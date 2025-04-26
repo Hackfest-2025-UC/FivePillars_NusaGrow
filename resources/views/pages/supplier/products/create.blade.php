@@ -9,8 +9,8 @@
 
     <h1 class="text-2xl font-semibold">Tambah Produk</h1>
 
-    <form action="#" method="POST" enctype="multipart/form-data"
-        class="flex flex-col items-center justify-center w-full mt-5 gap-5">
+    <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data"
+        class="flex flex-col justify-center w-full mt-5 gap-5">
         @csrf
         <label for="dropzone-file"
             class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-800"
@@ -25,61 +25,74 @@
                     or drag and drop</p>
                 <p class="text-xs text-white">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
             </div>
-            <input id="dropzone-file" name="file" type="file" class="hidden" />
+            <input id="dropzone-file" name="gambar_produk" type="file" class="hidden" />
         </label>
 
         <div class="flex justify-around w-full items-center gap-5">
             <div class="w-full">
-                <label for="first_name" class="block mb-2 font-medium text-gray-900">Nama Produk</label>
-                <input type="text" id="first_name"
+                <label class="block mb-2 font-medium text-gray-900">Nama Produk</label>
+                <input type="text"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 placeholder-gray-400"
-                    placeholder="John" required />
+                    placeholder="Satu Wadah Getah Karet" name="nama_produk" required />
             </div>
             <div class="w-full">
                 <label for="first_name" class="block mb-2 font-medium text-gray-900">Kategori Produk</label>
                 <select
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                    <option selected>Choose a country</option>
-                    <option value="US">United States</option>
-                    <option value="CA">Canada</option>
-                    <option value="FR">France</option>
-                    <option value="DE">Germany</option>
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                    name="kategori_produk">
+                    <option selected>Pilih Kategori</option>
+                    <option value="Pertanian">Perikanan</option>
+                    <option value="Elektronik">Elektronik</option>
+                    <option value="Peralatan Rumah Tangga">Peralatan Rumah Tangga</option>
+                    <option value="Bahan Makanan">Bahan Makanan</option>
                 </select>
             </div>
             <div class="w-full">
-                <label for="harga" class="block mb-2 font-medium text-gray-900">Harga
+                <label class="block mb-2 font-medium text-gray-900">Harga
                     Produk</label>
-                <input type="number" id="harga"
+                <input type="number"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 placeholder-gray-400"
-                    placeholder="1000000" required />
+                    placeholder="1000000" name="harga" required />
             </div>
         </div>
         <div class="w-full flex items-start gap-5">
-            <div class="w-1/3">
-                <label class="block mb-2 font-medium text-gray-900">Deskripsi Produk</label>
-                <textarea id="message" rows="4"
-                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Write your thoughts here..."></textarea>
-            </div>
+
             <div class="w-2/3">
-                <div id="map" class="w-full h-96"></div>
-                <div class="w-full mt-5">
-                    <div class="flex justify-around w-full items-center gap-5">
-                        <div class="w-full">
-                            <label for="latitude" class="block mb-2 font-medium text-gray-900">Latitude</label>
-                            <input type="number" id="inpLatitude"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                placeholder="-6.123456" required />
-                        </div>
-                        <div class="w-full">
-                            <label for="longitude" class="block mb-2 font-medium text-gray-900">Longitude</label>
-                            <input type="number" id="inpLongitude"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                                placeholder="106.123456" required />
-                        </div>
-                    </div>
+                <label class="block mb-2 font-medium text-gray-900">Deskripsi Produk</label>
+                <textarea id="message" rows="1"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Masukkan deskripsi disini..." name="deskripsi"></textarea>
+            </div>
+            <div class="w-1/3">
+                <div class="w-full">
+                    <label class="block mb-2 font-medium text-gray-900">Alamat</label>
+                    <input type="text"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        placeholder="Jl. Pemuda No. 1" name="alamat" required />
                 </div>
             </div>
+        </div>
+
+        <div id="map" class="w-full h-52"></div>
+        <div class="w-full">
+            <div class="flex justify-around w-full items-center gap-5">
+                <div class="w-full">
+                    <label for="latitude" class="block mb-2 font-medium text-gray-900">Latitude</label>
+                    <input type="number" id="inpLatitude" name="latitude"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        placeholder="-6.123456" readonly required />
+                </div>
+                <div class="w-full">
+                    <label for="longitude" class="block mb-2 font-medium text-gray-900">Longitude</label>
+                    <input type="number" id="inpLongitude" name="longitude"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                        placeholder="106.123456" readonly required />
+                </div>
+            </div>
+        </div>
+        <div class="flex justify-end">
+            <button type="submit"
+                class="w-fit text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-right">Simpan</button>
         </div>
     </form>
 
@@ -129,27 +142,26 @@
             });
         </script>
         <script>
-            var map = L.map('map').setView([-8.184486, 113.668076], 12); // Jakarta
+            var map = L.map('map').setView([-8.184486, 113.668076], 12);
 
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             }).addTo(map);
 
-            // Variabel untuk menyimpan marker terakhir
             var lastMarker = null;
 
             map.on('click', function(e) {
                 var lat = e.latlng.lat;
+                console.log(lat);
+
                 var lng = e.latlng.lng;
                 $("#inpLatitude").val(lat);
                 $("#inpLongitude").val(lng);
 
-                // Hapus marker sebelumnya jika ada
                 if (lastMarker) {
                     map.removeLayer(lastMarker);
                 }
 
-                // Tambahkan marker baru dan simpan ke variabel lastMarker
                 lastMarker = L.marker([lat, lng]).addTo(map)
                     .bindPopup("Latitude: " + lat + "<br>Longitude: " + lng).openPopup();
             });
