@@ -17,4 +17,10 @@ class ProductController extends Controller
         $produk = Produk::where('id_produk', $id)->first();
         return view('pages.products.detail', compact('produk'));
     }
+
+    public function getDataProduk()
+    {
+        $produks = Produk::all();
+        return response()->json($produks);
+    }
 }
