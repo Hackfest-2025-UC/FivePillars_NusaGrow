@@ -52,10 +52,6 @@ class User extends Authenticatable
         ];
     }
 
-    public function produsen()
-    {
-        return $this->hasOne(Produsen::class);
-    }
 
     public function produk()
     {
