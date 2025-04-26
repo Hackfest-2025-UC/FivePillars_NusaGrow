@@ -13,8 +13,8 @@ class VerifikasiAdminController extends Controller
     public function index()
     {
         return view('pages.admin.verifikasi', [
-            "kebutuhan_produsen" => KebutuhanProdusen::with('produsen')->get(),
-            "produk" => Produk::with('users')->get()
+            "kebutuhan_produsen" => KebutuhanProdusen::with('produsen')->where('status', 'menunggu')->get(),
+            "produk" => Produk::with('users')->where('status', 'menunggu')->get()
         ]);
     }
 
