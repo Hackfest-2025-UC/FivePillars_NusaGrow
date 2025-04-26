@@ -35,7 +35,7 @@ Route::get('/register-produsen', [RegisterProdusenController::class, 'index'])->
 
 // Route::middleware('auth')->group(function () {
 
-    Route::prefix('admin')->middleware('user-role:admin')->group(function () {
+    Route::prefix('admin')->group(function () {
         Route::get('/', [DashboardAdminController::class, 'index'])->name('admin.dashboard');
         Route::get('/verifikasi', [VerifikasiAdminController::class, 'index'])->name('admin.verifikasi');
         Route::put('/verifikasi/kebutuhan/{id_kebutuhan_produsen}/diterima', [VerifikasiAdminController::class, 'updateStatusKebutuhanDiterima'])->name('admin.verifikasi.statusKebutuhan-terima');

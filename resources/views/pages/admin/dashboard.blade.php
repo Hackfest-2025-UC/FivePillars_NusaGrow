@@ -4,7 +4,7 @@
     <h2 class="text-3xl font-bold text-gray-800 mb-4">Dashboard</h2>
 
     <!-- Card Welcome -->
-    <div class="bg-white p-6 rounded-xl shadow-lg text-white mb-10">
+    <div class="bg-white p-6 rounded-xl shadow-md text-white mb-10">
         <div class="flex items-center">
             <div class="text-5xl mr-4">
                 👋
@@ -48,4 +48,26 @@
             <p class="font-semibold text-red-500 mt-4">Perlu Diverifikasi</p>
         </div>
     </div>
+
+    <p class="text-2xl font-semibold my-2 text-center mt-8">Grafik Pendapatan</p>
+    <div id="chart"></div>
+
+<script>
+    var options = {
+  chart: {
+    type: 'line'
+  },
+  series: [{
+    name: 'sales',
+    data: [30,40,35,50,49,60,70,91,125]
+  }],
+  xaxis: {
+    categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
+  }
+}
+
+var chart = new ApexCharts(document.querySelector("#chart"), options);
+
+chart.render();
+</script>
 @endsection
