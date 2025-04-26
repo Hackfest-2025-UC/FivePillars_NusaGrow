@@ -1,4 +1,4 @@
-@extends('layouts.template')
+@extends('layouts.admin')
 
 @section('content')
     <h2 class="text-3xl font-bold text-gray-800 mb-4">Dashboard</h2>
@@ -25,7 +25,7 @@
         <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
             <div class="flex items-center justify-between">
                 <i class="ri-user-line text-5xl text-blue-700"></i>
-                <h1 class="text-4xl font-bold text-blue-700">12</h1>
+                <h1 class="text-4xl font-bold text-blue-700">{{ $total_user }}</h1>
             </div>
             <p class="font-semibold text-blue-700 mt-4">Total User Terdaftar</p>
         </div>

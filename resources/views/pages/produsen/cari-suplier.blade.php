@@ -1,4 +1,4 @@
-@extends('layouts.produsen')
+@extends('layouts.master_layout_admin')
 @section('content')
 <section class="flex gap-x-6 gap-y-4 px-2 py-16 w-full">
     <div class="relative overflow-x-auto w-full">

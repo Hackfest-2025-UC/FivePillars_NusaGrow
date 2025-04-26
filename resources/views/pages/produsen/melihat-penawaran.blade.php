@@ -1,4 +1,4 @@
-@extends('layouts.produsen')
+@extends('layouts.master_layout_admin')
 @section('content')
 
 <div class="relative overflow-x-auto">
