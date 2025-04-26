@@ -64,13 +64,10 @@ Route::prefix('supplier')->group(function () {
     Route::get('/request', [RequestProductSupplierController::class, "index"])->name('suplier.request.index');
     Route::get('/chat', [ChatSupplierController::class, "index"])->name('suplier.chat.index');
 });
-// Route::get('/', function () {
-//     return view('layouts.template');
-// });
+Route::prefix('investor')->group(function () {
+    Route::get('/dashboard', [DashboardInvestorController::class, "index"])->name('investor.dashboard.index');
+});
 
 Route::get('/', function () {
     return view('pages.home');
 });
-// Route::get('/dashboard', function () {
-//     return view('pages.dashboard');
-// });
