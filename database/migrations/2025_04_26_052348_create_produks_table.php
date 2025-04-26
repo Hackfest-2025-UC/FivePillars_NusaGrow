@@ -15,11 +15,12 @@ return new class extends Migration
             $table->bigIncrements('id_produk');
             $table->unsignedBigInteger('id_user');
             $table->string('nama_produk');
-            $table->text('gambar_produk');
-            $table->string('deskripsi_produk');
+            $table->string('gambar_produk');
+            $table->text('deskripsi_produk');
+            $table->enum('kategori_produk', ['pertanian', 'perikanan', 'elektronik', 'peralatan rumah tangga', 'bahan makanan'])->nullable();
             $table->integer('harga_produk');
-            $table->integer('latitude');
-            $table->integer('lolingitude');
+            $table->string('latitude');
+            $table->string('longitude');
             $table->enum('status', ['diterima', 'ditolak', 'menunggu'])->default('menunggu');
             $table->timestamps();
             $table->foreign('id_user')->references('id_users')->on('users')->onDelete('cascade');

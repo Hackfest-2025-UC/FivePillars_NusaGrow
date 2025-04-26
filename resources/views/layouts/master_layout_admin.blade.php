@@ -13,10 +13,10 @@
 
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.4.0/fonts/remixicon.css" rel="stylesheet" />
+    @stack('styles')
 </head>
 
 <body>
-
     @include('components.navbar')
 
     @if (request()->segment(1) === 'supplier')
@@ -25,12 +25,12 @@
         @include('components.sidebar')
     @endif
 
-
-
     <div class="p-4 sm:ml-64 mt-14">
         @yield('content')
     </div>
 
+    @stack('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </body>
 
 </html>

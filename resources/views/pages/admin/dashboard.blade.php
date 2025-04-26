@@ -5,7 +5,7 @@
     <h2 class="text-3xl font-bold text-gray-800 mb-4">Dashboard</h2>
 
     <!-- Card Welcome -->
-    <div class="bg-white p-6 rounded-xl shadow-lg text-white mb-10">
+    <div class="bg-white p-6 rounded-xl shadow-md text-white mb-10">
         <div class="flex items-center">
             <div class="text-5xl mr-4">
                 👋
@@ -36,7 +36,7 @@
         <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
             <div class="flex items-center justify-between">
                 <i class="ri-money-dollar-circle-line text-5xl text-green-600"></i>
-                <h1 class="text-4xl font-bold text-green-600">Rp 89.000</h1>
+                <h1 class="text-4xl font-bold text-green-600">Rp. {{ number_format($total_pendapatan, 0, ',', '.') }}</h1>
             </div>
             <p class="font-semibold text-green-600 mt-4">Total Pendapatan</p>
         </div>
@@ -45,7 +45,7 @@
         <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
             <div class="flex items-center justify-between">
                 <i class="ri-user-unfollow-line text-5xl text-red-500"></i>
-                <h1 class="text-4xl font-bold text-red-500">90</h1>
+                <h1 class="text-4xl font-bold text-red-500">{{ $total_perlu_diverifikasi }}</h1>
             </div>
             <p class="font-semibold text-red-500 mt-4">Perlu Diverifikasi</p>
         </div>
@@ -67,5 +67,26 @@
             </div>
         </div>
     </div>
-</section>
+
+    <p class="text-2xl font-semibold my-2 text-center mt-8">Grafik Pendapatan</p>
+    <div id="chart"></div>
+
+<script>
+    var options = {
+  chart: {
+    type: 'line'
+  },
+  series: [{
+    name: 'sales',
+    data: [30,40,35,50,49,60,70,91,125]
+  }],
+  xaxis: {
+    categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
+  }
+}
+
+var chart = new ApexCharts(document.querySelector("#chart"), options);
+
+chart.render();
+</script>
 @endsection
