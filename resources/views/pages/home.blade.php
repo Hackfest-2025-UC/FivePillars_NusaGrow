@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Nusa Grow</title>
     @vite('resources/css/app.css')
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.4.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -21,9 +22,131 @@
         </ul>
     </nav>
 
-    <div class="flex">
-        <h1>Membangun Konektivitas, Mendorong Pertumbuhan Ekonomi Nusantara</h1>
+    <div class="flex items-center justify-between px-16 py-16">
+        <div>
+            <h1 class="text-5xl font-bold">Membangun Konektivitas, Mendorong Pertumbuhan Ekonomi Nusantara</h1>
+            <p class="mt-4">Kami menghubungkan supplier bahan mentah dengan produsen secara efektif dan berkelanjutan.</p>
+            <a class="bg-[#28CB8B] hover:green-600 mt-6 transition-all text-white py-2 px-4 rounded-md inline-block items-center gap-2" href="">Gabung Sekarang</a>
+        </div>
+        <img class="w-1/2" src="{{ asset('image/hero.png') }}" alt="">
+    </div>
+
+    <div class="flex items-center gap-8 justify-between px-16 py-16">
+        <img class="w-1/2" src="{{ asset('image/image 3.png') }}" alt="">
+        <div>
+            <p class="mb-3 text-[17px]">Kami menghubungkan supplier bahan mentah dengan produsen secara efektif dan berkelanjutan.</p>
+            <h1 class="text-3xl font-bold">Visi</h1>
+            <p class="mb-3 text-[17px]">Menjadi platform utama yang mempercepat pertumbuhan ekonomi berbasis hilirisasi di seluruh Indonesia.</p>
+            <h1 class="text-3xl font-bold">Misi</h1>
+            <p class="mb-3 text-[17px]">MeningkatQCQkan kemudahan akses antara supplier dan produsen.
+                Mendorong kolaborasi investasi berbasis sektor strategis.
+                Membantu pengembangan ekonomi daerah melalui teknologi..</p>
+            
+        </div>
     </div>
     
+    <h1 class="text-3xl font-bold text-center">Layanan Kami</h1>
+
+    <div class="flex flex-col gap-12 p-10 my-10 mx-28 rounded bg-slate-50 items-center justify-center">
+        <div class="flex items-center gap-4">
+            <i class="ri-user-community-line p-5 rounded-full bg-[#28CB8B] text-white text-5xl"></i>
+           <div>
+            <h1 class="text-2xl font-bold">Penyambung Supplier dan Produsen</h1>
+            <p>Membantu supplier menawarkan produk ke banyak produsen secara luas.</p>
+           </div>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <i class="ri-hand-coin-line  p-5 rounded-full bg-[#28CB8B] text-white text-5xl"></i>
+           <div>
+            <h1 class="text-2xl font-bold">Fasilitator Kerjasama Investasi</h1>
+            <p>Membuka peluang kolaborasi antara supplier, investor, dan pemilik lahan.</p>
+           </div>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <i class="ri-verified-badge-fill p-5 rounded-full bg-[#28CB8B] text-white text-5xl"></i>
+           <div>
+            <h1 class="text-2xl font-bold">Verifikasi & Standarisasi</h1>
+            <p>Membantu memastikan kualitas dan legalitas transaksi untuk pengamanan.</p>
+           </div>
+        </div>
+    </div>
+
+    <h1 class="text-3xl font-bold text-center my-20">Testimoni Layanan</h1>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16 px-18">
+        <div class="flex flex-col p-4 bg-white rounded-lg shadow-md">
+            <div class="flex items-center justify-between">
+                <p class="text-sm text-gray-400">20 Oktober 2022</p>
+                <i class="ri-quote-line text-2xl"></i>
+            </div>
+            <p class="mt-4 text-lg text-gray-600 italic">"Saya sangat puas dengan produk dari NusaGrow. Kualitasnya sangat bagus
+                dan harganya terjangkau."</p>
+            <p class="mt-4 text-lg font-semibold">- Rizky</p>
+        </div>
+        <div class="flex flex-col p-4 bg-white rounded-lg shadow-md">
+            <div class="flex items-center justify-between">
+                <p class="text-sm text-gray-400">20 Oktober 2022</p>
+                <i class="ri-quote-line text-2xl"></i>
+            </div>
+            <p class="mt-4 text-lg text-gray-600 italic">"Saya sangat puas dengan produk dari NusaGrow. Kualitasnya sangat bagus
+                dan harganya terjangkau."</p>
+            <p class="mt-4 text-lg font-semibold">- Rizky</p>
+        </div>
+        <div class="flex flex-col p-4 bg-white rounded-lg shadow-md">
+            <div class="flex items-center justify-between">
+                <p class="text-sm text-gray-400 italic">20 Oktober 2022</p>
+                <i class="ri-quote-line text-2xl"></i>
+            </div>
+            <p class="mt-4 text-lg text-gray-600">"Saya sangat puas dengan produk dari NusaGrow. Kualitasnya sangat bagus
+                dan harganya terjangkau."</p>
+            <p class="mt-4 text-lg font-semibold">- Rizky</p>
+        </div>
+    </div>
+
+    <div class="flex mx-24 py-40 gap-10">
+        <div class="w-1/2">
+            <h1 class="text-6xl mb-5 font-bold">Kontak <br> Kami</h1>
+        <p>Untuk Setiap Pertanyaan, perkiraan proyek atau Katakan saja Halo Get Touch Anda dapat menelepon atau mengobrol
+            Bersama kami</p>
+        </div>
+
+        <div class="w-1/2">
+            <h1 class="text-2xl font-bold">Number</h1>
+            <p class="mb-3">08123456789 / 08123456789</p>
+            <h1 class="text-2xl font-bold">Ofice Address</h1>
+            <p>Sumbersari Jl. Raya Sumbersari, Sumbersari, Jember</p>
+            <a href="" class="bg-[#28CB8B] hover:green-600 mt-6 transition-all text-white py-2 px-4 rounded-md inline-block items-center gap-2">Kontak Kami</a>
+        </div>
+    </div>
+
+    <div class="flex px-12 py-8 gap-10 justify-between">
+        <div class="w-1/2">
+            <img src="{{ asset('image/icon.png') }}" class="w-1/2 mb-5" alt="">
+            <p class="mb-5">Jelajahi semua pengetahuan dan ilmu yang berguna bersama kami, untuk kehidupan yang lebih bermanfaat</p>
+            <div class="flex text-[#28CB8B] text-3xl">
+                <i class="ri-instagram-fill"></i>
+                <i class="ri-facebook-circle-fill"></i>
+                <i class="ri-linkedin-box-fill"></i>
+            </div>
+        </div>
+        <div class="w-1/4">
+            <p class="font-bold">Informasi</p>
+            <ul>
+                <li>Artikel</li>
+                <li>Galeri</li>
+            </ul>
+        </div>
+        <div class="w-1/4">
+            <p class="font-bold">Tentang</p>
+            <ul>
+                <li>Tentang Kami</li>
+                <li>Hubungi Kami</li>
+            </ul>
+        </div>
+    </div>
+    <footer class="text-center py-5 border-t-1 border-gray-200">
+        <small>Copyright © 2025. All rights reserved.</small>
+    </footer>
 </body>
 </html>
