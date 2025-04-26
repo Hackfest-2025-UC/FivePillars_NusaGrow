@@ -8,4 +8,4 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::post("getToken", [TransaksiController::class, "getToken"])->name("getToken");
+Route::post('callback', [TransaksiController::class, "callback"])->name("callback");

@@ -14,9 +14,12 @@ use App\Http\Controllers\RegisterProdusenController;
 use App\Http\Controllers\supplier\DashboardSupplierController;
 use App\Http\Controllers\supplier\ProductSupplierController;
 use App\Http\Controllers\supplier\RequestProductSupplierController;
+use App\Http\Controllers\TransaksiController;
 
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
-Route::get('/products/detail', [ProductController::class, 'indexDetail'])->name('products.detail');
+Route::get('/products/detail/{id}', [ProductController::class, 'indexDetail'])->name('products.detail');
+
+Route::post("get-token", [TransaksiController::class, "getToken"])->name("getToken");
 
 Route::get('/dashboard', function () {
     return view('pages.dashboard');
@@ -30,7 +33,7 @@ Route::get('/register-produsen', [RegisterProdusenController::class, 'index'])->
 
 // ADMIN
 
-Route::middleware('auth')->group(function () {
+// Route::middleware('auth')->group(function () {
 
     Route::prefix('admin')->middleware('user-role:admin')->group(function () {
         Route::get('/', [DashboardAdminController::class, 'index'])->name('admin.dashboard');
@@ -51,11 +54,11 @@ Route::middleware('auth')->group(function () {
         Route::get('/products', [ProductSupplierController::class, "index"])->name('suplier.products.index');
         Route::get('/request', [RequestProductSupplierController::class, "index"])->name('suplier.request.index');
     });
-});
-
-// Route::get('/', function () {
-//     return view('layouts.template');
 // });
+
+Route::get('/', function () {
+    return view('pages.home');
+});
 // Route::get('/dashboard', function () {
 //     return view('pages.dashboard');
 // });

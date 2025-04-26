@@ -20,7 +20,7 @@
                 <p class="text-xl font-semibold">20kg</p>
             </div>
         </div>
-        <a href="{{ route('products.detail') }}" class="px-4 py-2 flex mt-8 justify-center rounded-lg bg-gray-700 text-white"><i class="ri-share-box-line me-2"></i>Lihat Detail</a>
+        <a href="{{ route('products.detail', $produk->id_produk) }}" class="px-4 py-2 flex mt-8 justify-center rounded-lg bg-gray-700 text-white"><i class="ri-share-box-line me-2"></i>Lihat Detail</a>
     </div>
     @endforeach
 </section>
