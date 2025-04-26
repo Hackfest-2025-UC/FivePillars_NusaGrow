@@ -20,9 +20,9 @@ Route::get('/dashboard', function () {
 });
 
 Route::prefix('produsen')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, "index"]);
-    Route::get('/cari-suplier',[CariSuplierController::class, "index"])->name('cari-supplier.index');
-    Route::get('melihat-penawaran', [MelihatPenawaranController::class, "index"])->name('melihat-penawaran.index');
+    Route::get('/dashboard', [DashboardController::class, "index"])->name('produsen.dashboard.index');
+    Route::get('/cari-suplier',[CariSuplierController::class, "index"])->name('produsen.cari-supplier.index');
+    Route::get('melihat-penawaran', [MelihatPenawaranController::class, "index"])->name('produsen.melihat-penawaran.index');
 });
 // Route::get('/', function () {
 //     return view('layouts.template');
