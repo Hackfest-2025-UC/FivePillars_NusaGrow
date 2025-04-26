@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\admin\DashboardAdminController;
 use App\Http\Controllers\admin\VerifikasiAdminController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterProdusenController;
 use App\Http\Controllers\supplier\DashboardSupplierController;
 use App\Http\Controllers\supplier\ProductSupplierController;
 use App\Http\Controllers\supplier\RequestProductSupplierController;
@@ -19,9 +21,11 @@ Route::get('/dashboard', function () {
     return view('pages.dashboard');
 });
 
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [AuthController::class, 'login']);
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+// LOGIN
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/cek-login', [LoginController::class, 'cekLogin'])->name('cek-login');
+Route::get('/register-produsen', [RegisterProdusenController::class, 'index'])->name('register-produsen');
+
 
 // ADMIN
 Route::prefix('admin')->group(function () {
