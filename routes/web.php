@@ -35,7 +35,7 @@ Route::get('/register-produsen', [RegisterProdusenController::class, 'index'])->
 
 // Route::middleware('auth')->group(function () {
 
-    Route::prefix('admin')->middleware('user-role:admin')->group(function () {
+    Route::prefix('admin')->group(function () {
         Route::get('/', [DashboardAdminController::class, 'index'])->name('admin.dashboard');
         Route::get('/verifikasi', [VerifikasiAdminController::class, 'index'])->name('admin.verifikasi');
         Route::put('/verifikasi/kebutuhan/{id_kebutuhan_produsen}/diterima', [VerifikasiAdminController::class, 'updateStatusKebutuhanDiterima'])->name('admin.verifikasi.statusKebutuhan-terima');
@@ -43,7 +43,7 @@ Route::get('/register-produsen', [RegisterProdusenController::class, 'index'])->
         Route::put('/verifikasi/produk/{id_produk}/diterima', [VerifikasiAdminController::class, 'updateStatusProdukDiterima'])->name('admin.verifikasi.statusProduk-terima');
         Route::put('/verifikasi/produk/{id_produk}/ditolak', [VerifikasiAdminController::class, 'updateStatusProdukDitolak'])->name('admin.verifikasi.statusProduk-tolak');
     });
-    
+
     Route::prefix('produsen')->group(function () {
         Route::get('/dashboard', [DashboardController::class, "index"])->name('produsen.dashboard.index');
         Route::get('/cari-suplier', [ProdusenController::class, "cariSuplier"])->name('produsen.cari-supplier.index');
