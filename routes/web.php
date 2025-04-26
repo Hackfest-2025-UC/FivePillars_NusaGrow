@@ -7,7 +7,9 @@ use App\Http\Controllers\Produsen\MelihatPenawaranController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\DashboardAdminController;
 use App\Http\Controllers\admin\VerifikasiAdminController;
-
+use App\Http\Controllers\supplier\DashboardSupplierController;
+use App\Http\Controllers\supplier\ProductSupplierController;
+use App\Http\Controllers\supplier\RequestProductSupplierController;
 
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/products/detail', [ProductController::class, 'indexDetail'])->name('products.detail');
@@ -17,9 +19,14 @@ Route::get('/dashboard', function () {
 });
 
 Route::prefix('produsen')->group(function () {
-    Route::get('/cari-suplier',[CariSuplierController::class, "index"])->name('produsen.cari-supplier.index');
     Route::get('/dashboard', [DashboardController::class, "index"])->name('produsen.dashboard.index');
+    Route::get('/cari-suplier', [CariSuplierController::class, "index"])->name('produsen.cari-supplier.index');
     Route::get('melihat-penawaran', [MelihatPenawaranController::class, "index"])->name('produsen.melihat-penawaran.index');
+});
+Route::prefix('supplier')->group(function () {
+    Route::get('/dashboard', [DashboardSupplierController::class, "index"])->name('suplier.dashboard.index');
+    Route::get('/products', [ProductSupplierController::class, "index"])->name('suplier.products.index');
+    Route::get('/request', [RequestProductSupplierController::class, "index"])->name('suplier.request.index');
 });
 // Route::get('/', function () {
 //     return view('layouts.template');
@@ -31,4 +38,3 @@ Route::prefix('produsen')->group(function () {
 // ADMIN
 Route::get('/', [DashboardAdminController::class, 'index'])->name('admin.dashboard');
 Route::get('/verifikasi', [VerifikasiAdminController::class, 'index'])->name('admin.verifikasi');
-
