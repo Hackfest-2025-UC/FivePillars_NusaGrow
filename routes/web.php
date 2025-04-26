@@ -7,7 +7,9 @@ use App\Http\Controllers\Produsen\MelihatPenawaranController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\admin\DashboardAdminController;
+use App\Http\Controllers\admin\PendapatanController;
 use App\Http\Controllers\admin\VerifikasiAdminController;
+use App\Http\Controllers\investor\DashboardInvestorController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Produsen\ProdusenController;
 use App\Http\Controllers\RegisterProdusenController;
@@ -28,7 +30,9 @@ Route::get('/dashboard', function () {
 // LOGIN
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/cek-login', [LoginController::class, 'cekLogin'])->name('cek-login');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/register-produsen', [RegisterProdusenController::class, 'index'])->name('register-produsen');
+Route::post('/register-produsen', [RegisterProdusenController::class, 'storeRoleProdusen'])->name('register-produsen');
 
 
 // ADMIN
@@ -36,14 +40,19 @@ Route::get('/register-produsen', [RegisterProdusenController::class, 'index'])->
 // Route::middleware('auth')->group(function () {
 
     Route::prefix('admin')->group(function () {
+<<<<<<< HEAD
         Route::get('/', [DashboardAdminController::class, 'index'])->name('admin.dashboard');
+=======
+        Route::get('/dashboard', [DashboardAdminController::class, 'index'])->name('admin.dashboard');
+>>>>>>> 1d99f6be72f44163eafc17bb825f94a0c6782710
         Route::get('/verifikasi', [VerifikasiAdminController::class, 'index'])->name('admin.verifikasi');
         Route::put('/verifikasi/kebutuhan/{id_kebutuhan_produsen}/diterima', [VerifikasiAdminController::class, 'updateStatusKebutuhanDiterima'])->name('admin.verifikasi.statusKebutuhan-terima');
         Route::put('/verifikasi/kebutuhan/{id_kebutuhan_produsen}/ditolak', [VerifikasiAdminController::class, 'updateStatusKebutuhanDitolak'])->name('admin.verifikasi.statusKebutuhan-tolak');
         Route::put('/verifikasi/produk/{id_produk}/diterima', [VerifikasiAdminController::class, 'updateStatusProdukDiterima'])->name('admin.verifikasi.statusProduk-terima');
         Route::put('/verifikasi/produk/{id_produk}/ditolak', [VerifikasiAdminController::class, 'updateStatusProdukDitolak'])->name('admin.verifikasi.statusProduk-tolak');
+        Route::get('/pendapatan', [PendapatanController::class, 'index'])->name('admin.pendapatan');
     });
-    
+
     Route::prefix('produsen')->group(function () {
         Route::get('/dashboard', [DashboardController::class, "index"])->name('produsen.dashboard.index');
         Route::get('/cari-suplier', [ProdusenController::class, "cariSuplier"])->name('produsen.cari-supplier.index');
@@ -53,6 +62,10 @@ Route::get('/register-produsen', [RegisterProdusenController::class, 'index'])->
         Route::get('/dashboard', [DashboardSupplierController::class, "index"])->name('suplier.dashboard.index');
         Route::get('/products', [ProductSupplierController::class, "index"])->name('suplier.products.index');
         Route::get('/request', [RequestProductSupplierController::class, "index"])->name('suplier.request.index');
+    });
+    Route::prefix('investor')->group(function () {
+        Route::get('/dashboard', [DashboardInvestorController::class, "index"])->name('investor.dashboard.index');
+        Route::get('/products', [ProductSupplierController::class, "index"])->name('investor.products.index');
     });
 // });
 
