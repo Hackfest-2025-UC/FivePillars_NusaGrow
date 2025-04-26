@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('penawarans', function (Blueprint $table) {
             $table->bigIncrements('id_penawaran');
-            $table->unsignedBigInteger('id_kebutuhan_perusahaan');
+            $table->unsignedBigInteger('id_kebutuhan_produsen');
             $table->unsignedBigInteger('id_produk');
             $table->integer('harga_penawaran');
             $table->string('deskripsi_penawaran');
             $table->string('status_penawaran');
             $table->timestamps();
+            $table->foreign('id_kebutuhan_produsen')->references('id_kebutuhan_produsen')->on('kebutuhan_produsens')->onDelete('cascade');
+            $table->foreign('id_produk')->references('id_produk')->on('produks')->onDelete('cascade');
         });
     }
 
