@@ -1,4 +1,4 @@
-@extends('layouts.template')
+@extends('layouts.admin')
 
 @section('content')
     <h2 class="text-3xl font-bold text-gray-800 mb-4">Dashboard</h2>

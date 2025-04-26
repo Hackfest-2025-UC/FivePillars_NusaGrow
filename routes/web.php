@@ -16,8 +16,18 @@ Route::get('/dashboard', function () {
     return view('pages.dashboard');
 });
 
+// ADMIN
+Route::prefix('admin')->group(function () {
+    Route::get('/', [DashboardAdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/verifikasi', [VerifikasiAdminController::class, 'index'])->name('admin.verifikasi');
+    Route::put('/verifikasi/kebutuhan/{id_kebutuhan_produsen}/diterima', [VerifikasiAdminController::class, 'updateStatusKebutuhanDiterima'])->name('admin.verifikasi.statusKebutuhan-terima');
+    Route::put('/verifikasi/kebutuhan/{id_kebutuhan_produsen}/ditolak', [VerifikasiAdminController::class, 'updateStatusKebutuhanDitolak'])->name('admin.verifikasi.statusKebutuhan-tolak');
+    Route::put('/verifikasi/produk/{id_produk}/diterima', [VerifikasiAdminController::class, 'updateStatusProdukDiterima'])->name('admin.verifikasi.statusProduk-terima');
+    Route::put('/verifikasi/produk/{id_produk}/ditolak', [VerifikasiAdminController::class, 'updateStatusProdukDitolak'])->name('admin.verifikasi.statusProduk-tolak');
+});
+
 Route::prefix('produsen')->group(function () {
-    Route::get('/cari-suplier',[CariSuplierController::class, "index"])->name('produsen.cari-supplier.index');
+    Route::get('/cari-suplier', [CariSuplierController::class, "index"])->name('produsen.cari-supplier.index');
     Route::get('/dashboard', [DashboardController::class, "index"])->name('produsen.dashboard.index');
     Route::get('melihat-penawaran', [MelihatPenawaranController::class, "index"])->name('produsen.melihat-penawaran.index');
 });
@@ -27,8 +37,3 @@ Route::prefix('produsen')->group(function () {
 // Route::get('/dashboard', function () {
 //     return view('pages.dashboard');
 // });
-
-// ADMIN
-Route::get('/', [DashboardAdminController::class, 'index'])->name('admin.dashboard');
-Route::get('/verifikasi', [VerifikasiAdminController::class, 'index'])->name('admin.verifikasi');
-
