@@ -9,6 +9,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\admin\DashboardAdminController;
 use App\Http\Controllers\admin\PendapatanController;
 use App\Http\Controllers\admin\VerifikasiAdminController;
+use App\Http\Controllers\ai\NLPController;
 use App\Http\Controllers\investor\DashboardInvestorController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Produsen\ProdusenController;
@@ -22,6 +23,7 @@ Route::get('/products', [ProductController::class, 'index'])->name('products.ind
 Route::get('/products/detail/{id}', [ProductController::class, 'indexDetail'])->name('products.detail');
 
 Route::post("get-token", [TransaksiController::class, "getToken"])->name("getToken");
+Route::get("nlp", [NLPController::class, "index"])->name("nlp");
 
 Route::get('/dashboard', function () {
     return view('pages.dashboard');
