@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('latitude');
             $table->integer('lolingitude');
             $table->timestamps();
+            $table->foreign('id_user')->references('id_users')->on('users')->onDelete('cascade');
         });
     }
 
