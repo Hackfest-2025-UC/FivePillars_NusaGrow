@@ -1,11 +1,16 @@
 <?php
 
+use App\Http\Controllers\products\ProductController;
 use App\Http\Controllers\Produsen\CariSuplierController;
 use App\Http\Controllers\Produsen\DashboardController;
 use App\Http\Controllers\Produsen\MelihatPenawaranController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\DashboardAdminController;
 use App\Http\Controllers\admin\VerifikasiAdminController;
+
+
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/products/detail', [ProductController::class, 'indexDetail'])->name('products.detail');
 
 // Route::get('/', function () {
 //     return view('layouts.template');
@@ -29,3 +34,4 @@ Route::prefix('produsen')->group(function () {
 // ADMIN
 Route::get('/', [DashboardAdminController::class, 'index'])->name('admin.dashboard');
 Route::get('/verifikasi', [VerifikasiAdminController::class, 'index'])->name('admin.verifikasi');
+
