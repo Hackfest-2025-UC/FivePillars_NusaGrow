@@ -28,7 +28,9 @@ Route::prefix('produsen')->group(function () {
 });
 Route::prefix('supplier')->group(function () {
     Route::get('/dashboard', [DashboardSupplierController::class, "index"])->name('suplier.dashboard.index');
-    Route::get('/products', [ProductSupplierController::class, "index"])->name('suplier.products.index');
+
+    // Prducts
+    Route::resource('/products', ProductSupplierController::class);
     Route::get('/request', [RequestProductSupplierController::class, "index"])->name('suplier.request.index');
 });
 // Route::get('/', function () {
