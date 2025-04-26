@@ -44,7 +44,7 @@ class ProductSupplierController extends Controller
         if ($request->hasFile('gambar_produk')) {
             $file = $request->file('gambar_produk');
             $filename = time() . '.' . $file->getClientOriginalExtension();
-            $file->storePubliclyAs('/', $filename, 'public');
+            $file->storePubliclyAs('supplier', $filename, 'public');
         }
 
         $produk = Produk::create([
@@ -99,7 +99,7 @@ class ProductSupplierController extends Controller
         if ($request->hasFile('gambar_produk')) {
             $file = $request->file('gambar_produk');
             $filename = time() . '.' . $file->getClientOriginalExtension();
-            $file->storePubliclyAs('/', $filename, 'public');
+            $file->storePubliclyAs('supplier', $filename, 'public');
             $produk->gambar_produk = $filename;
         }
 
