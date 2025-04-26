@@ -18,8 +18,8 @@ return new class extends Migration
             $table->text('gambar_produk');
             $table->string('deskripsi_produk');
             $table->integer('harga_produk');
-            $table->integer('latitude');
-            $table->integer('lolingitude');
+            $table->string('latitude');
+            $table->string('longitude');
             $table->enum('status', ['diterima', 'ditolak', 'menunggu'])->default('menunggu');
             $table->timestamps();
             $table->foreign('id_user')->references('id_users')->on('users')->onDelete('cascade');

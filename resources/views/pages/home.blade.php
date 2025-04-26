@@ -6,6 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Nusa Grow</title>
     @vite('resources/css/app.css')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+     <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+ crossorigin=""></script>
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.4.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
 <body>
@@ -30,6 +38,9 @@
         </div>
         <img class="w-1/2" src="{{ asset('image/hero.png') }}" alt="">
     </div>
+
+    <h1 class="text-3xl font-bold text-center">Peta Sebaran Nusa Grow</h1>
+    <div id="map" class="h-[500px] w-full"></div>
 
     <div class="flex items-center gap-8 justify-between px-16 py-16">
         <img class="w-1/2" src="{{ asset('image/image 3.png') }}" alt="">
@@ -148,5 +159,82 @@
     <footer class="text-center py-5 border-t-1 border-gray-200">
         <small>Copyright © 2025. All rights reserved.</small>
     </footer>
+
+    <script>
+
+         // Cek apakah browser mendukung Geolocation
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+      document.getElementById("lokasi").innerText = "Geolocation tidak didukung browser ini.";
+    }
+
+    function showPosition(position) {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      var circle = L.circle([latitude, longitude], {
+    color: 'none',
+    fillColor: '#f03',
+    fillOpacity: 0.3,
+    radius: 10000
+}).addTo(map);
+
+L.marker([latitude, longitude]).addTo(map).bindPopup('Posisi Saat ini').openPopup();
+      
+    }
+
+    function showError(error) {
+      switch(error.code) {
+        case error.PERMISSION_DENIED:
+          document.getElementById("lokasi").innerText = "Izin lokasi ditolak.";
+          break;
+        case error.POSITION_UNAVAILABLE:
+          document.getElementById("lokasi").innerText = "Informasi lokasi tidak tersedia.";
+          break;
+        case error.TIMEOUT:
+          document.getElementById("lokasi").innerText = "Permintaan lokasi timeout.";
+          break;
+        case error.UNKNOWN_ERROR:
+          document.getElementById("lokasi").innerText = "Terjadi error yang tidak diketahui.";
+          break;
+      }
+    }
+    
+
+               var map = L.map('map').setView([-8.184486, 113.668076], 8); 
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    
+    $.ajax({
+            url: "/api/get-data-produk",
+            method: "GET",
+            success: function(data) {
+                console.log(data);
+
+                data.forEach(element => {
+                    // Mengambil koordinat dari setiap elemen data
+                    var lat = element.latitude;
+                    var lng = element.longitude;
+
+                    // Menambahkan marker di posisi koordinat dari API
+                    var markers = L.marker([lat, lng]).addTo(map);
+
+                    // Mengikat popup dengan informasi yang sesuai untuk setiap marker
+                    var popupContent = "<b>" + element.nama_produk + "</b><br>" +
+                        "Harga: " + element.harga_produk + "<br>" +
+                        "<a href='/products/detail/" + element.id_produk +
+                        "' class='bg-[#dddddd] p-2 w-full text-center text-[16px] inline-block mt-4'>Lihat Detail</a>";
+
+                    // Menambahkan popup secara langsung ke posisi yang diinginkan di peta
+                    markers.bindPopup(popupContent);
+                })
+            }
+        })
+
+        
+    </script>
 </body>
 </html>
