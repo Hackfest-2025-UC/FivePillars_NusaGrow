@@ -36,7 +36,7 @@
         <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
             <div class="flex items-center justify-between">
                 <i class="ri-money-dollar-circle-line text-5xl text-green-600"></i>
-                <h1 class="text-4xl font-bold text-green-600">Rp 89.000</h1>
+                <h1 class="text-4xl font-bold text-green-600">Rp. {{ number_format($total_pendapatan, 0, ',', '.') }}</h1>
             </div>
             <p class="font-semibold text-green-600 mt-4">Total Pendapatan</p>
         </div>
@@ -45,7 +45,7 @@
         <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
             <div class="flex items-center justify-between">
                 <i class="ri-user-unfollow-line text-5xl text-red-500"></i>
-                <h1 class="text-4xl font-bold text-red-500">90</h1>
+                <h1 class="text-4xl font-bold text-red-500">{{ $total_perlu_diverifikasi }}</h1>
             </div>
             <p class="font-semibold text-red-500 mt-4">Perlu Diverifikasi</p>
         </div>
