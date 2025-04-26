@@ -17,157 +17,303 @@
             <p class="text-gray-400 mt-2">Isi data dengan benar</p>
         </div>
 
-        <!-- Step Progress -->
-        <div class="flex justify-center items-center mb-10 space-x-4" id="steps">
-            <div class="step-item flex items-center space-x-2">
-                <div class="step-circle w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center">1
-                </div>
-                <div class="w-16 h-1 bg-gray-300"></div>
-            </div>
-            <div class="step-item flex items-center space-x-2">
-                <div
-                    class="step-circle w-8 h-8 rounded-full bg-gray-300 text-gray-600 flex items-center justify-center">
-                    2</div>
-                <div class="w-16 h-1 bg-gray-300"></div>
-            </div>
-            <div class="step-item flex items-center space-x-2">
-                <div
-                    class="step-circle w-8 h-8 rounded-full bg-gray-300 text-gray-600 flex items-center justify-center">
-                    3</div>
-                <div class="w-16 h-1 bg-gray-300"></div>
-            </div>
-            <div class="step-item flex items-center">
-                <div
-                    class="step-circle w-8 h-8 rounded-full bg-gray-300 text-gray-600 flex items-center justify-center">
-                    4</div>
-            </div>
-        </div>
 
-        <div id="stepsContainer">
+        <form id="multiStepForm" action="{{ route('register-produsen') }}" method="POST">
+            @csrf
             <!-- Step 1 -->
-            <form id="step1" class="step-form grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div id="step1" class="step-form grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Nama Produsen</label>
+                    <input type="text" class="w-full border border-gray-300 rounded-md p-3"
+                        placeholder="Nama perusahaan" name="nama_produsen">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Alamat Produsen</label>
+                    <input type="text" class="w-full border border-gray-300 rounded-md p-3"
+                        placeholder="alamat_produsen" name="alamat_produsen">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Email Produsen</label>
+                    <input type="email" class="w-full border border-gray-300 rounded-md p-3"
+                        placeholder="Nama perusahaan" name="email_produsen">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Pasword Produsen</label>
+                    <input type="password" class="w-full border border-gray-300 rounded-md p-3"
+                        placeholder="Password Produsen" name="password_produsen">
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div id="step2" class="step-form grid grid-cols-1 md:grid-cols-2 gap-6 hidden">
                 <div>
                     <label class="block text-sm font-semibold mb-1">Nama Perusahaan</label>
                     <input type="text" class="w-full border border-gray-300 rounded-md p-3"
-                        placeholder="Nama perusahaan">
+                        placeholder="Nama perusahaan" name="nama_perusahaan">
                 </div>
                 <div>
                     <label class="block text-sm font-semibold mb-1">NPWP (Optional)</label>
-                    <input type="text" class="w-full border border-gray-300 rounded-md p-3" placeholder="NPWP">
+                    <input type="text" class="w-full border border-gray-300 rounded-md p-3" placeholder="NPWP"
+                        name="NPWP">
                 </div>
-                <div class="md:col-span-2">
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Jenis Perusahan</label>
+                    <select name="jenis_perusahaan" class="w-full border border-gray-300 rounded-md p-3">
+                        <option value="">Pilih jenis perusahaan</option>
+                        <option value="perusahaan">Perusahaan</option>
+                        <option value="perorangan">Perorangan</option>
+                        <option value="dinas">Dinas</option>
+                    </select>
+                </div>
+                <div>
                     <label class="block text-sm font-semibold mb-2">Deskripsi Perusahaan</label>
-                    <textarea class="w-full border border-gray-300 rounded-md p-3 h-28" placeholder="Deskripsi"></textarea>
-                </div>
-            </form>
-
-            <!-- Step 2 -->
-            <form id="step2" class="step-form grid grid-cols-1 md:grid-cols-2 gap-6 hidden">
-                <div>
-                    <label class="block text-sm font-semibold mb-1">Alamat</label>
-                    <input type="text" class="w-full border border-gray-300 rounded-md p-3" placeholder="Alamat">
+                    <textarea class="w-full border border-gray-300 rounded-md p-3 h-28" name="deskripsi_perusahaan" placeholder="Deskripsi"></textarea>
                 </div>
                 <div>
-                    <label class="block text-sm font-semibold mb-1">Kota</label>
-                    <input type="text" class="w-full border border-gray-300 rounded-md p-3" placeholder="Kota">
+                    <label class="text-sm font-semibold">Sektor Industri</label>
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="flex items-start mt-3">
+                            <input type="radio" class="mt-1 mr-2" name="sektor_industri" value="Pertanian">
+                            <label class="text-sm font-semibold">Pertanian</label>
+                        </div>
+                        <div class="flex items-start mt-3">
+                            <input type="radio" class="mt-1 mr-2" name="sektor_industri" value="Elektronik">
+                            <label class="text-sm font-semibold">Elektronik</label>
+                        </div>
+                        <div class="flex items-start mt-3">
+                            <input type="radio" class="mt-1 mr-2" name="sektor_industri"
+                                value="Peralatan Rumah Tangga">
+                            <label class="text-sm font-semibold">Peralatan Rumah Tangga</label>
+                        </div>
+                        <div class="flex items-start">
+                            <input type="radio" class="mt-1 mr-2" name="sektor_industri" value="Bahan Makanan">
+                            <label class="text-sm font-semibold">Bahan Makanan</label>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <label class="block text-sm font-semibold mb-1">Provinsi</label>
-                    <input type="text" class="w-full border border-gray-300 rounded-md p-3" placeholder="Provinsi">
-                </div>
-            </form>
+            </div>
 
             <!-- Step 3 -->
-            <form id="step3" class="step-form grid grid-cols-1 md:grid-cols-2 gap-6 hidden">
+            <div id="step3" class="step-form grid grid-cols-1 md:grid-cols-2 gap-6 hidden">
                 <div>
-                    <label class="block text-sm font-semibold mb-1">Kontak Person</label>
-                    <input type="text" class="w-full border border-gray-300 rounded-md p-3"
-                        placeholder="Nama Kontak">
+                    <label class="block text-sm font-semibold mb-1">No Telpon</label>
+                    <input type="text" class="w-full border border-gray-300 rounded-md p-3" placeholder="No Telpon"
+                        name="no_telpon">
                 </div>
                 <div>
-                    <label class="block text-sm font-semibold mb-1">Nomor Telepon</label>
+                    <label class="block text-sm font-semibold mb-1">Email Perusahaan</label>
                     <input type="text" class="w-full border border-gray-300 rounded-md p-3"
-                        placeholder="Nomor Telepon">
+                        placeholder="Email Perusahaan" name="email_perusahaan">
                 </div>
-            </form>
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Website Perusahaan (Optional)</label>
+                    <input type="text" class="w-full border border-gray-300 rounded-md p-3"
+                        placeholder="Website Perusahaan" name="website_perusahaan">
+                </div>
+            </div>
 
             <!-- Step 4 -->
-            <form id="step4" class="step-form grid grid-cols-1 md:grid-cols-2 gap-6 hidden">
+            <div id="step4" class="step-form grid grid-cols-1 md:grid-cols-2 gap-6 hidden">
                 <div>
-                    <label class="block text-sm font-semibold mb-1">Email</label>
-                    <input type="email" class="w-full border border-gray-300 rounded-md p-3"
-                        placeholder="Email Perusahaan">
+                    <label class="block text-sm font-semibold mb-1">Provinsi</label>
+                    <select name="provinsi" id="provinsi" class="w-full border border-gray-300 rounded-md p-3">
+                        <option><--- Pilih Provinsi ---></option>
+                    </select>
                 </div>
                 <div>
-                    <label class="block text-sm font-semibold mb-1">Website</label>
-                    <input type="text" class="w-full border border-gray-300 rounded-md p-3"
-                        placeholder="Website Perusahaan">
+                    <label class="block text-sm font-semibold mb-1">Kabupaten</label>
+                    <select name="kabupaten" id="kabupaten" class="w-full border border-gray-300 rounded-md p-3">
+                        <option value=""><--- Pilih Kabupaten ---></option>
+                    </select>
                 </div>
-            </form>
-        </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Kecamatan</label>
+                    <select name="kecamatan" id="kecamatan" class="w-full border border-gray-300 rounded-md p-3">
+                        <option value=""><--- Pilih kecamatan ---></option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Kelurahan</label>
+                    <select name="kelurahan" id="kelurahan" class="w-full border border-gray-300 rounded-md p-3">
+                        <option value=""><--- Pilih kelurahan ---></option>
+                    </select>
+                </div>
+            </div>
 
-        <div class="flex justify-between mt-10">
-            <button id="prevBtn"
-                class="bg-gray-300 text-gray-700 px-6 py-3 rounded-md hover:bg-gray-400 transition hidden">
-                Sebelumnya
-            </button>
-            <button id="nextBtn" class="bg-green-500 text-white px-6 py-3 rounded-md hover:bg-green-600 transition">
-                Selanjutnya
-            </button>
-        </div>
-
+            <!-- Navigasi Tombol -->
+            <div class="flex justify-between mt-10">
+                <button type="button" id="prevBtn"
+                    class="bg-gray-300 text-gray-700 px-6 py-3 rounded-md hover:bg-gray-400 transition hidden">
+                    Sebelumnya
+                </button>
+                <button type="button" id="nextBtn"
+                    class="bg-green-500 text-white px-6 py-3 rounded-md hover:bg-green-600 transition">
+                    Selanjutnya
+                </button>
+                <button type="submit" id="submitBtn"
+                    class="bg-green-500 text-white px-6 py-3 rounded-md hover:bg-green-600 transition hidden">
+                    Simpan
+                </button>
+            </div>
+        </form>
     </div>
 
     <script>
-        let currentStep = 1;
-        const totalSteps = 4;
+        document.addEventListener("DOMContentLoaded", function() {
+            let currentStep = 1;
+            const totalSteps = 4;
 
-        const stepForms = document.querySelectorAll('.step-form');
-        const stepsCircles = document.querySelectorAll('.step-circle');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
+            const stepForm = document.querySelectorAll(".step-form");
+            const nextBtn = document.getElementById("nextBtn");
+            const prevBtn = document.getElementById("prevBtn");
 
-        function showStep(step) {
-            stepForms.forEach((form, index) => {
-                form.classList.toggle('hidden', index !== step - 1);
-            });
+            // Show the current step and hide the others
+            function showStep(step) {
+                stepForm.forEach((form, index) => {
+                    if (index + 1 === step) {
+                        form.classList.remove("hidden");
+                    } else {
+                        form.classList.add("hidden");
+                    }
+                });
 
-            stepsCircles.forEach((circle, index) => {
-                if (index < step) {
-                    circle.classList.add('bg-green-500', 'text-white');
-                    circle.classList.remove('bg-gray-300', 'text-gray-600');
+                // Show or hide the 'Previous' and 'Next' buttons
+                if (step === 1) {
+                    prevBtn.classList.add("hidden");
                 } else {
-                    circle.classList.add('bg-gray-300', 'text-gray-600');
-                    circle.classList.remove('bg-green-500', 'text-white');
+                    prevBtn.classList.remove("hidden");
+                }
+
+                if (step === totalSteps) {
+                    nextBtn.classList.add("hidden"); // Hide the 'Next' button on last step
+                    document.getElementById("submitBtn").classList.remove("hidden"); // Show 'Save' button
+                } else {
+                    nextBtn.classList.remove("hidden");
+                    document.getElementById("submitBtn").classList.add("hidden");
+                }
+            }
+
+            // Next button functionality
+            nextBtn.addEventListener("click", function() {
+                if (currentStep < totalSteps) {
+                    currentStep++;
+                    showStep(currentStep);
                 }
             });
 
-            prevBtn.classList.toggle('hidden', step === 1);
-            nextBtn.textContent = step === totalSteps ? 'Selesai' : 'Selanjutnya';
-        }
+            // Previous button functionality
+            prevBtn.addEventListener("click", function() {
+                if (currentStep > 1) {
+                    currentStep--;
+                    showStep(currentStep);
+                }
+            });
 
-        nextBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            if (currentStep < totalSteps) {
-                currentStep++;
-                showStep(currentStep);
-            } else {
-                alert('Formulir selesai dikirim!');
-                // Tambahkan action submit di sini kalau mau
-            }
+            // Initial setup
+            showStep(currentStep);
         });
-
-        prevBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            if (currentStep > 1) {
-                currentStep--;
-                showStep(currentStep);
-            }
-        });
-
-        showStep(currentStep);
     </script>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $.ajax({
+                url: "https://www.emsifa.com/api-wilayah-indonesia/api/provinces.json",
+                method: "get",
+                success(res) {
+                    console.log(res)
+                    var data = res;
+                    var tampung = "";
+                    if ($("#check").val() == 0) {
+                        tampung = "<option><-- Pilih Provinsi --></option>";
+                    } else {
+                        var prov = $("#check").val();
+                        tampung = `<option selected>${prov}</option>`
+                    }
+                    data.forEach(element => {
+                        tampung +=
+                            `<option data-reg="${element.id}" value="${element.name}">${element.name}</option>`
+                    });
+                    $("#provinsi").html(tampung);
+                },
+                error(err) {
+                    console.log(err);
+                }
+            })
+
+            $("#provinsi").change(function(e) {
+                var idProvinsi = e.target.options[e.target.selectedIndex].dataset.reg;
+
+                $.ajax({
+                    url: `https://www.emsifa.com/api-wilayah-indonesia/api/regencies/${idProvinsi}.json`,
+                    method: "get",
+                    success(res) {
+                        console.log(res)
+                        var data = res;
+                        $("#kabupaten").html("<option>-- Pilih Kab/Kota --</option>");
+                        $("#kecamatan").html("<option>-- Pilih Kecamatan --</option>");
+                        $("#kelurahan").html("<option>-- Pilih Kelurahan --</option>");
+                        var tampung = "<option>-- Pilih Kab/Kota --</option>";
+                        data.forEach(element => {
+                            tampung +=
+                                `<option data-reg="${element.id}" value="${element.name}">${element.name}</option>`
+                        });
+                        $("#kabupaten").html(tampung);
+                    },
+                    error(err) {
+                        console.log(err);
+                    }
+                })
+            })
+
+            $("#kabupaten").change(function(e) {
+                var idKota = e.target.options[e.target.selectedIndex].dataset.reg;
+
+                $.ajax({
+                    url: `https://www.emsifa.com/api-wilayah-indonesia/api/districts/${idKota}.json`,
+                    method: "get",
+                    success(res) {
+                        console.log(res)
+                        var data = res;
+                        var tampung = "<option>-- Pilih Kecamatan --</option>";
+                        $("#kecamatan").html("<option>-- Pilih Kecamatan --</option>");
+                        data.forEach(element => {
+                            tampung +=
+                                `<option data-reg="${element.id}" value="${element.name}">${element.name}</option>`
+                        });
+                        $("#kecamatan").html(tampung);
+                    },
+                    error(err) {
+                        console.log(err);
+                    }
+                })
+            })
+
+            $("#kecamatan").change(function(e) {
+                var idKecamatan = e.target.options[e.target.selectedIndex].dataset.reg;
+
+                $.ajax({
+                    url: `https://www.emsifa.com/api-wilayah-indonesia/api/villages/${idKecamatan}.json`,
+                    method: "get",
+                    success(res) {
+                        console.log(res)
+                        var data = res;
+                        var tampung = "<option>-- Pilih Kelurahan --</option>";
+                        $("#kelurahan").html("<option>-- Pilih Kelurahan --</option>");
+                        data.forEach(element => {
+                            tampung +=
+                                `<option data-reg="${element.id}" value="${element.name}">${element.name}</option>`
+                        });
+                        $("#kelurahan").html(tampung);
+                    },
+                    error(err) {
+                        console.log(err);
+                    }
+                })
+            })
+        });
+    </script>
 </body>
 
 </html>
