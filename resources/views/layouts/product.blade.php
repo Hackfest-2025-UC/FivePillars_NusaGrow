@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    @include('components.product.navbar')
     @yield('content')
 </body>
 

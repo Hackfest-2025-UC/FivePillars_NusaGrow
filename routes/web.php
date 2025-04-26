@@ -6,7 +6,8 @@ use App\Http\Controllers\admin\DashboardAdminController;
 use App\Http\Controllers\admin\VerifikasiAdminController;
 
 
-Route::get('/products', [ProductController::class, 'index']);
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/products/detail', [ProductController::class, 'indexDetail'])->name('products.detail');
 
 // Route::get('/', function () {
 //     return view('layouts.template');

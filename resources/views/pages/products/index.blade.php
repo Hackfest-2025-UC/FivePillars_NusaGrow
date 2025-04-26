@@ -1,8 +1,9 @@
 @extends('layouts.product')
 
 @section('content')
-<section class="grid grid-cols-4 gap-4 px-16 py-16">
-   <div class="shadow p-5 rounded-2xl">
+<section class="grid grid-cols-4 gap-x-6 gap-y-4 px-16 py-16">
+  @for ($i = 0; $i < 10; $i++)
+    <div class="shadow p-5 rounded-2xl">
         <img src="../img/bahan.jpg" alt="asd" class="h-36 w-full object-cover rounded-lg">
         <h1 class="text-[20px] mt-4 text-lg font-semibold">Kopi Arabica</h1>
         <div class="flex items-center">
@@ -19,7 +20,8 @@
                 <p class="text-xl font-semibold">20kg</p>
             </div>
         </div>
-        <a href="" class="px-4 py-2 flex mt-8 justify-center rounded-lg bg-gray-700 text-white"><i class="ri-share-box-line me-2"></i>Lihat Detail</a>
-   </div>
+        <a href="{{ route('products.detail') }}" class="px-4 py-2 flex mt-8 justify-center rounded-lg bg-gray-700 text-white"><i class="ri-share-box-line me-2"></i>Lihat Detail</a>
+    </div>
+  @endfor
 </section>
 @endsection
