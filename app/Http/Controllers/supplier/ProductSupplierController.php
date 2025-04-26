@@ -5,6 +5,7 @@ namespace App\Http\Controllers\supplier;
 use App\Http\Controllers\Controller;
 use App\Models\Produk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductSupplierController extends Controller
 {
@@ -48,7 +49,7 @@ class ProductSupplierController extends Controller
         }
 
         $produk = Produk::create([
-            'id_user' => 3, //jangan lupa ganti auth
+            'id_user' => Auth::user()->id,
             'nama_produk' => $request->nama_produk,
             'harga_produk' => $request->harga,
             'deskripsi_produk' => $request->deskripsi,

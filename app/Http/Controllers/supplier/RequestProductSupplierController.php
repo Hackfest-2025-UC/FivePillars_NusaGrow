@@ -5,6 +5,7 @@ namespace App\Http\Controllers\supplier;
 use App\Http\Controllers\Controller;
 use App\Models\Permintaan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RequestProductSupplierController extends Controller
 {
@@ -15,7 +16,7 @@ class RequestProductSupplierController extends Controller
             'produk.user'
         ])
             ->whereHas('produk', function ($query) {
-                $query->where('id_user', 3);
+                $query->where('id_user', Auth::user()->id);
             })
             ->get();
         return view('pages.supplier.request.index', compact('permintaans'));
