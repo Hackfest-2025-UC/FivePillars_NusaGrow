@@ -22,7 +22,7 @@ class ProdusenController extends Controller
         $produsen = Produsen::where('id_user', 1)->first();
         $user_id = KebutuhanProdusen::where('id_produsen', $produsen->id_produsen)->first();
         $penawarans = Penawaran::where('id_kebutuhan_produsen', $user_id->id_kebutuhan_produsen)->get();
-        return view('pages.produsen.melihat-penawaran', compact('penawarans'));
+        return view('pages.produsen.lihat-tawaran', compact('penawarans'));
     }
 
     
