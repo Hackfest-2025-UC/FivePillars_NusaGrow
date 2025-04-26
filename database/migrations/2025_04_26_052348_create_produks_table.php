@@ -15,6 +15,7 @@ return new class extends Migration
             $table->bigIncrements('id_produk');
             $table->unsignedBigInteger('id_user');
             $table->string('nama_produk');
+            $table->text('gambar_produk');
             $table->string('deskripsi_produk');
             $table->integer('harga_produk');
             $table->integer('latitude');
