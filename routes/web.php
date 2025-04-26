@@ -9,6 +9,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\admin\DashboardAdminController;
 use App\Http\Controllers\admin\PendapatanController;
 use App\Http\Controllers\admin\VerifikasiAdminController;
+use App\Http\Controllers\investor\DashboardInvestorController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Produsen\ProdusenController;
 use App\Http\Controllers\RegisterProdusenController;
@@ -59,7 +60,7 @@ Route::post('/register-produsen', [RegisterProdusenController::class, 'storeRole
         Route::get('/request', [RequestProductSupplierController::class, "index"])->name('suplier.request.index');
     });
     Route::prefix('investor')->group(function () {
-        Route::get('/dashboard', [DashboardSupplierController::class, "index"])->name('investor.dashboard.index');
+        Route::get('/dashboard', [DashboardInvestorController::class, "index"])->name('investor.dashboard.index');
         Route::get('/products', [ProductSupplierController::class, "index"])->name('investor.products.index');
     });
 // });
