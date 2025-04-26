@@ -25,6 +25,7 @@ Route::get('/dashboard', function () {
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/cek-login', [LoginController::class, 'cekLogin'])->name('cek-login');
 Route::get('/register-produsen', [RegisterProdusenController::class, 'index'])->name('register-produsen');
+Route::post('/register-produsen', [RegisterProdusenController::class, 'storeRoleProdusen'])->name('register-produsen');
 
 
 // ADMIN
