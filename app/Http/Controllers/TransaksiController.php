@@ -2,18 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Produk;
 use App\Models\Transaksi;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TransaksiController extends Controller
 {
     public function getToken(Request $request) {
         $rand_id = "TRN".time().rand(1,9);
-
+    $user = User::where('id_users', $request->id)->first();
+    $produk = Produk::where('id_produk', $request->id_produk)->first();
+    $jumlah = $request->jumlah * $produk->harga_produk;
     $transaksi = Transaksi::create([
-        'jumlah_transaksi' => $request->jumlah,
+        'jumlah_transaksi' => $jumlah,
         'id_user' => $request->id,
-        'status' => false,
+        'status_transaksi' => false,
         'order_id' => $rand_id
     ]);
         // Set your Merchant Server Key
@@ -28,12 +32,12 @@ class TransaksiController extends Controller
     $params = array(
         'transaction_details' => array(
             'order_id' => $rand_id,
-            'gross_amount' => $request->amount,
+            'gross_amount' => $jumlah,
         ),
         'customer_details' => array(
-            'first_name' => 'test',
+            'first_name' => $user->nama,
             'last_name' => '.',
-            'email' => 'test@gmail.com'
+            'email' => $user->email,
             // 'phone' => '08111222333',
         ),
     );
@@ -44,7 +48,7 @@ class TransaksiController extends Controller
     public function callback(Request $request) {
         $id = $request->order_id;
         $donasi = Transaksi::where('order_id', $id)->first();
-        $donasi->status = true;
+        $donasi->status_transaksi = true;
         $donasi->save();
         return response()->json($donasi);
     }

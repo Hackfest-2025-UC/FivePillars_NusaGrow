@@ -14,9 +14,12 @@ use App\Http\Controllers\RegisterProdusenController;
 use App\Http\Controllers\supplier\DashboardSupplierController;
 use App\Http\Controllers\supplier\ProductSupplierController;
 use App\Http\Controllers\supplier\RequestProductSupplierController;
+use App\Http\Controllers\TransaksiController;
 
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
-Route::get('/products/detail', [ProductController::class, 'indexDetail'])->name('products.detail');
+Route::get('/products/detail/{id}', [ProductController::class, 'indexDetail'])->name('products.detail');
+
+Route::post("get-token", [TransaksiController::class, "getToken"])->name("getToken");
 
 Route::get('/dashboard', function () {
     return view('pages.dashboard');

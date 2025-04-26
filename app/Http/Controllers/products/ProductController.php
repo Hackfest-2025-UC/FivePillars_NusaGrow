@@ -13,7 +13,8 @@ class ProductController extends Controller
         return view('pages.products.index', compact('produks'));
     }
 
-    public function indexDetail(){
-        return view('pages.products.detail');
+    public function indexDetail($id){
+        $produk = Produk::where('id_produk', $id)->first();
+        return view('pages.products.detail', compact('produk'));
     }
 }
