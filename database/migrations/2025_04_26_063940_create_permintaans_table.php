@@ -17,8 +17,11 @@ return new class extends Migration
             $table->unsignedBigInteger('id_produk');
             $table->integer('harga_penawaran');
             $table->string('deskripsi_penawaran');
-            $table->string('status_permintaan');
+            $table->string('balasan_penawaran')->nullable();
+            $table->enum('status_permintaan', ['diterima', 'ditolak', 'proses'])->default('proses');
             $table->timestamps();
+            $table->foreign('id_kebutuhan_produsen')->references('id_kebutuhan_produsen')->on('kebutuhan_produsens')->onDelete('cascade');
+            $table->foreign('id_produk')->references('id_produk')->on('produks')->onDelete('cascade');
         });
     }
 

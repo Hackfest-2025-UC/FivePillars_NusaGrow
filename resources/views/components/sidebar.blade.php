@@ -15,7 +15,7 @@
             </li>
             <li>
                 <a href="{{ route('admin.verifikasi') }}"
-                class="flex items-center p-2 rounded-lg group
+                    class="flex items-center p-2 rounded-lg group
                 {{ request()->routeIs('admin.verifikasi') ? 'text-white dark:text-green-600 bg-green-500 dark:bg-gray-700' : 'text-gray-900 dark:text-white hover:bg-green-200 dark:hover:bg-gray-700' }}">
                     <i class="ri-verified-badge-line text-3xl"></i>
                     <span class="ms-3">Verifikasi</span>
@@ -23,7 +23,7 @@
             </li>
             <li>
                 <a href="{{ route('admin.pendapatan') }}"
-                class="flex items-center p-2 rounded-lg group
+                    class="flex items-center p-2 rounded-lg group
                 {{ request()->routeIs('admin.pendapatan') ? 'text-white dark:text-green-600 bg-green-500 dark:bg-gray-700' : 'text-gray-900 dark:text-white hover:bg-green-200 dark:hover:bg-gray-700' }}">
                     <i class="ri-wallet-2-line text-3xl"></i>
                     <span class="ms-3">Pendapatan</span>
@@ -62,7 +62,7 @@
             @endif
             @if (request()->segment(1) === 'investor')
             <li>
-                <a href="{{ route('investor.dashboard.index') }}"
+                <a href="#"
                     class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                     <svg class="w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">

@@ -14,6 +14,7 @@ use App\Http\Controllers\investor\DashboardInvestorController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Produsen\ProdusenController;
 use App\Http\Controllers\RegisterProdusenController;
+use App\Http\Controllers\supplier\CariInvestorController;
 use App\Http\Controllers\supplier\ChatSupplierController;
 use App\Http\Controllers\supplier\DashboardSupplierController;
 use App\Http\Controllers\supplier\ProductSupplierController;
@@ -64,8 +65,9 @@ Route::prefix('supplier')->group(function () {
     // Prducts
     Route::resource('/products', ProductSupplierController::class);
     Route::get('/request', [RequestProductSupplierController::class, "index"])->name('suplier.request.index');
+    Route::post('/request', [RequestProductSupplierController::class, "store"])->name('suplier.request.store');
     Route::get('/chat', [ChatSupplierController::class, "index"])->name('suplier.chat.index');
-    Route::get('/cari-investor', [NLPController::class, "index"])->name('suplier.nlp.index');
+    Route::get('/cari-investor', [CariInvestorController::class, "index"])->name('suplier.nlp.index');
     Route::post('/cari-investor', [NLPController::class, "index"])->name('suplier.nlp.index');
 });
 Route::prefix('investor')->group(function () {

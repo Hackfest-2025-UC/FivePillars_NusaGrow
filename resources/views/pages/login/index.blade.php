@@ -10,20 +10,20 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.4.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
 
-<body class="flex items-center justify-center h-screen bg-gradient-to-b from-blue-600 to-blue-900">
+<body class="flex items-center justify-center h-screen bg-gradient-to-b from-green-600 to-green-900">
     <div class="bg-white h-[650px] shadow-xl rounded-xl flex max-w-4xl w-full overflow-hidden">
         <div class="w-1/2 bg-cover bg-center relative" style="background-image: url('{{ asset('image/pabrik.jpeg') }}')">
-            <div class="absolute inset-0 bg-black opacity-50"></div>
+            <div class="absolute inset-0 bg-black opacity-40"></div>
             <div class="relative z-10 p-8 text-center text-white flex flex-col items-center justify-center h-full">
                 <h1 class="text-3xl font-bold">NusaGrow</h1>
                 <p class="mt-4 text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. In, ducimus doloribus
                     ratione sint adipisci excepturi ullam et perspiciatis sunt porro, animi modi delectus? Voluptatum
                     dolor maxime aliquid quia repellendus ipsum.</p>
                 <div class="relative mt-20 w-96">
-                    <button id="registerButton"
+                    {{-- <button id="registerButton"
                         class="bg-transparent border-2 border-white text-white font-bold px-4 py-2 rounded-md w-full hover:bg-white hover:text-black transition">
                         Register
-                    </button>
+                    </button> --}}
 
                     <div id="registerOptions"
                         class="hidden absolute w-full bg-white rounded-md shadow-md mt-2 overflow-hidden">
@@ -46,7 +46,7 @@
                     <label for="email" class="block text-sm font-medium text-black">Email</label>
                     <div
                         class="flex items-center border border-gray-300 rounded-md p-2 space-x-3 mt-1 focus-within:border-black">
-                        <span class="material-icons text-blue-700"><i class="ri-mail-line"></i></span>
+                        <span class="material-icons text-green-700"><i class="ri-mail-line"></i></span>
                         <input type="email" id="email" placeholder="Masukkan email anda"
                             value="{{ old('email') }}" name="email"
                             class="w-full outline-none px-2 focus:border-black">
@@ -56,14 +56,14 @@
                     <label for="password" class="block text-sm font-medium text-black">Password</label>
                     <div
                         class="flex items-center border border-gray-300 rounded-md p-2 space-x-3 mt-1 focus-within:border-black">
-                        <span class="material-icons text-blue-700"><i class="ri-key-2-fill"></i></span>
+                        <span class="material-icons text-green-700"><i class="ri-key-2-fill"></i></span>
                         <input type="password" id="password" placeholder="Masukkan password anda"
                             value="{{ old('password') }}" name="password"
                             class="w-full outline-none px-2 focus:border-black">
                     </div>
                 </div>
                 <button
-                    class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition">LOGIN</button>
+                    class="w-full bg-green-600 text-white py-2 rounded-md hover:bg-green-700 transition">LOGIN</button>
             </form>
         </div>
     </div>
