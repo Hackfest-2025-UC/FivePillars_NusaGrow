@@ -1,4 +1,4 @@
-@extends('layouts.product')
+@extends('layouts.master_layout_landing')
 
 @section('content')
 <section class="grid grid-cols-4 gap-x-6 gap-y-4 px-16 py-16">

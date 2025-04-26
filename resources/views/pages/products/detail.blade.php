@@ -1,4 +1,4 @@
-@extends('layouts.product')
+@extends('layouts.master_layout_landing')
 @section('content')
 <section class="flex gap-x-6 gap-y-4 px-16 py-28 w-full">
     <div class="w-1/2">
