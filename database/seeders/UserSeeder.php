@@ -19,10 +19,10 @@ class UserSeeder extends Seeder
             'password' => 'adminn123',
             'role' => 'admin',
         ], [
-            'nama' => 'Pengola',
-            'email' => 'pengola@gmail.com',
+            'nama' => 'Produsen',
+            'email' => 'produsen@gmail.com',
             'password' => 'pengola123',
-            'role' => 'pengola',
+            'role' => 'produsen',
         ], [
             'nama' => 'Supplier',
             'email' => 'supplier@gmail.com',
