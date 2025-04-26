@@ -29,6 +29,8 @@ class LoginController extends Controller
         ];
 
         if (Auth::attempt($cekLogoin)) {
+            $request->session()->regenerate();
+            // dd(Auth::user()->role);
             if (Auth::user()->role == 'admin') {
                 return redirect()->route('admin.dashboard');
             } else if (Auth::user()->role == 'produsen') {

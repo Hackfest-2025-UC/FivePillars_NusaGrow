@@ -12,6 +12,7 @@ use App\Http\Controllers\admin\VerifikasiAdminController;
 use App\Http\Controllers\ai\NLPController;
 use App\Http\Controllers\investor\DashboardInvestorController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\Produsen\ProdusenController;
 use App\Http\Controllers\RegisterProdusenController;
 use App\Http\Controllers\supplier\ChatSupplierController;
 use App\Http\Controllers\supplier\DashboardSupplierController;
@@ -49,13 +50,13 @@ Route::prefix('admin')->group(function () {
     Route::put('/verifikasi/produk/{id_produk}/diterima', [VerifikasiAdminController::class, 'updateStatusProdukDiterima'])->name('admin.verifikasi.statusProduk-terima');
     Route::put('/verifikasi/produk/{id_produk}/ditolak', [VerifikasiAdminController::class, 'updateStatusProdukDitolak'])->name('admin.verifikasi.statusProduk-tolak');
     Route::get('/pendapatan', [PendapatanController::class, 'index'])->name('admin.pendapatan');
-});
+})->middleware(['auth','auth-role:admin']);
 
 Route::prefix('produsen')->group(function () {
     Route::get('/dashboard', [DashboardController::class, "index"])->name('produsen.dashboard.index');
-    Route::get('/cari-suplier', [CariSuplierController::class, "index"])->name('produsen.cari-supplier.index');
-    Route::get('melihat-penawaran', [MelihatPenawaranController::class, "index"])->name('produsen.melihat-penawaran.index');
-});
+    Route::get('/cari-suplier', [ProdusenController::class, "cariSuplier"])->name('produsen.cari-supplier.index');
+    Route::get('melihat-penawaran', [ProdusenController::class, "penawaran"])->name('produsen.melihat-penawaran.index');
+})->middleware('auth');
 Route::prefix('supplier')->group(function () {
     Route::get('/dashboard', [DashboardSupplierController::class, "index"])->name('suplier.dashboard.index');
 
@@ -65,10 +66,12 @@ Route::prefix('supplier')->group(function () {
     Route::get('/chat', [ChatSupplierController::class, "index"])->name('suplier.chat.index');
     Route::get('/cari-investor', [NLPController::class, "index"])->name('suplier.nlp.index');
     Route::post('/cari-investor', [NLPController::class, "index"])->name('suplier.nlp.index');
-});
+})->middleware('auth');
 Route::prefix('investor')->group(function () {
     Route::get('/dashboard', [DashboardInvestorController::class, "index"])->name('investor.dashboard.index');
 });
+
+// });
 
 Route::get('/', function () {
     return view('pages.home');

@@ -16,7 +16,7 @@ class UserRole
      */
     public function handle(Request $request, Closure $next, string ...$roles): Response
     {
-        if ($request->user()->role == $roles && Auth::user() != null) {
+        if ($request->user()->role == $roles) {
             return redirect()->route('login');
         }
         return $next($request);
