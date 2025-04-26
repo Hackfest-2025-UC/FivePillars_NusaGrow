@@ -65,7 +65,7 @@ Route::prefix('supplier')->group(function () {
     Route::get('/request', [RequestProductSupplierController::class, "index"])->name('suplier.request.index');
     Route::post('/request', [RequestProductSupplierController::class, "store"])->name('suplier.request.store');
     Route::get('/chat', [ChatSupplierController::class, "index"])->name('suplier.chat.index');
-    Route::get('/cari-investor', [NLPController::class, "index"])->name('suplier.nlp.index');
+    Route::get('/cari-investor', [CariSuplierController::class, "index"])->name('suplier.nlp.index');
     Route::post('/cari-investor', [NLPController::class, "index"])->name('suplier.nlp.index');
 })->middleware('auth');
 Route::prefix('investor')->group(function () {
