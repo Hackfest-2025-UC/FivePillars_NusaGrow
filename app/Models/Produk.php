@@ -6,5 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Produk extends Model
 {
-    //
+    protected $table = 'produks';
+    protected $primaryKey = 'id_produk';
+
+    public function users()
+    {
+        return $this->belongsTo(User::class, 'id_user', 'id_users');
+    }
 }
