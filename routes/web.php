@@ -7,6 +7,7 @@ use App\Http\Controllers\Produsen\MelihatPenawaranController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\DashboardAdminController;
 use App\Http\Controllers\admin\VerifikasiAdminController;
+use App\Http\Controllers\supplier\ChatSupplierController;
 use App\Http\Controllers\supplier\DashboardSupplierController;
 use App\Http\Controllers\supplier\ProductSupplierController;
 use App\Http\Controllers\supplier\RequestProductSupplierController;
@@ -32,6 +33,7 @@ Route::prefix('supplier')->group(function () {
     // Prducts
     Route::resource('/products', ProductSupplierController::class);
     Route::get('/request', [RequestProductSupplierController::class, "index"])->name('suplier.request.index');
+    Route::get('/chat', [ChatSupplierController::class, "index"])->name('suplier.chat.index');
 });
 // Route::get('/', function () {
 //     return view('layouts.template');
