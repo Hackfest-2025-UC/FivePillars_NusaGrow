@@ -105,41 +105,46 @@
                                 Jumlah Kebutuhan
                             </th>
                             <th scope="col" class="px-6 py-3">
+                                Status
+                            </th>
+                            <th scope="col" class="px-6 py-3">
                                 Aksi
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
-                            <th scope="row"
-                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                1.
-                            </th>
-                            <td class="px-6 py-4">
-                                Farhan
-                            </td>
-                            <td class="px-6 py-4">
-                                Upylon
-                            </td>
-                            <td class="px-6 py-4">
-                                Jalan sini
-                            </td>
-                            <td class="px-6 py-4">
-                                10
-                            </td>
-                            <td class="px-6 py-4">
-                                <div class="flex items-center space-x-2">
-                                    <a href="#"
-                                        class="font-medium text-blue-600 border-2 border-blue-600 px-3 py-1.5 rounded-md hover:bg-blue-600 hover:text-white">
-                                        <i class="ri-check-line text-xl"></i>
-                                    </a>
-                                    <a href="#"
-                                        class="font-medium text-red-600 border-2 border-red-600 px-3 py-1.5 rounded-md hover:bg-red-600 hover:text-white">
-                                        <i class="ri-close-line text-xl"></i>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
+                        {{-- @foreach ($kebutuhan_perusahaan as $kebutuhan) --}}
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    {{-- {{ $loop->iteration }} --}}
+                                </th>
+                                <td class="px-6 py-4">
+                                    {{-- {{ $kebutuhan->user->name }} --}}
+                                </td>
+                                <td class="px-6 py-4">
+                                    Upylon
+                                </td>
+                                <td class="px-6 py-4">
+                                    Jalan sini
+                                </td>
+                                <td class="px-6 py-4">
+                                    10
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center space-x-2">
+                                        <a href="#"
+                                            class="font-medium text-blue-600 border-2 border-blue-600 px-3 py-1.5 rounded-md hover:bg-blue-600 hover:text-white">
+                                            <i class="ri-check-line text-xl"></i>
+                                        </a>
+                                        <a href="#"
+                                            class="font-medium text-red-600 border-2 border-red-600 px-3 py-1.5 rounded-md hover:bg-red-600 hover:text-white">
+                                            <i class="ri-close-line text-xl"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        {{-- @endforeach --}}
                     </tbody>
                 </table>
             </div>
