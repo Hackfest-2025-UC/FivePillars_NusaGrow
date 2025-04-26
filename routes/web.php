@@ -12,16 +12,13 @@ use App\Http\Controllers\admin\VerifikasiAdminController;
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/products/detail', [ProductController::class, 'indexDetail'])->name('products.detail');
 
-// Route::get('/', function () {
-//     return view('layouts.template');
-// });
 Route::get('/dashboard', function () {
     return view('pages.dashboard');
 });
 
 Route::prefix('produsen')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, "index"])->name('produsen.dashboard.index');
     Route::get('/cari-suplier',[CariSuplierController::class, "index"])->name('produsen.cari-supplier.index');
+    Route::get('/dashboard', [DashboardController::class, "index"])->name('produsen.dashboard.index');
     Route::get('melihat-penawaran', [MelihatPenawaranController::class, "index"])->name('produsen.melihat-penawaran.index');
 });
 // Route::get('/', function () {
