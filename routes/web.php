@@ -7,7 +7,7 @@ use App\Http\Controllers\Produsen\MelihatPenawaranController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\DashboardAdminController;
 use App\Http\Controllers\admin\VerifikasiAdminController;
-
+use App\Http\Controllers\TransaksiController;
 
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/products/detail', [ProductController::class, 'indexDetail'])->name('products.detail');
