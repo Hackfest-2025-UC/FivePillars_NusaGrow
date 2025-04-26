@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('produsens', function (Blueprint $table) {
             $table->bigIncrements('id_produsen');
+            $table->unsignedBigInteger('id_user');
             $table->string('nama_produsen');
             $table->string('alamat_produsen');
             $table->timestamps();
+            $table->foreign('id_user')->references('id_users')->on('users')->onDelete('cascade');
         });
     }
 
