@@ -1,10 +1,11 @@
-@extends('layouts.master_layout_admin')
+@extends('layouts.admin')
 
 @section('content')
+<section class="py-16">
     <h2 class="text-3xl font-bold text-gray-800 mb-4">Dashboard</h2>
 
     <!-- Card Welcome -->
-    <div class="bg-white p-6 rounded-xl shadow-lg text-white mb-10">
+    <div class="bg-white p-6 rounded-xl shadow-md text-white mb-10">
         <div class="flex items-center">
             <div class="text-5xl mr-4">
                 👋
@@ -14,7 +15,8 @@
                 <p class="text-md text-blue-600">Semangat mengelola data hari ini! 🚀</p>
             </div>
             <div class="ml-auto">
-                <img src="{{ asset('image/undraw_creative-flow_t3kz.png') }}" alt="Creative Flow" width="200" class="ml-4">
+                <img src="{{ asset('image/undraw_creative-flow_t3kz.png') }}" alt="Creative Flow" width="200"
+                    class="ml-4">
             </div>
         </div>
     </div>
@@ -25,7 +27,7 @@
         <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
             <div class="flex items-center justify-between">
                 <i class="ri-user-line text-5xl text-blue-700"></i>
-                <h1 class="text-4xl font-bold text-blue-700">12</h1>
+                <h1 class="text-4xl font-bold text-blue-700">{{ $total_user }}</h1>
             </div>
             <p class="font-semibold text-blue-700 mt-4">Total User Terdaftar</p>
         </div>
@@ -47,5 +49,44 @@
             </div>
             <p class="font-semibold text-red-500 mt-4">Perlu Diverifikasi</p>
         </div>
+
+        <!-- Chart Section -->
+        <div class="flex flex-row space-x-4 mt-10">
+            <div class="bg-white p-6 rounded-lg shadow-md w-xl flex flex-col">
+                <h2 class="text-2xl font-bold mb-6 text-gray-800 text-center">Distribusi User</h2>
+                <div class="w-full aspect-square">
+                    <canvas id="pieChart" class="w-full h-full"></canvas>
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-md w-xl flex flex-col">
+                <h2 class="text-2xl font-bold mb-6 text-gray-800 text-center">Statistik Pendapatan</h2>
+                <div class="w-full aspect-[4/3]">
+                    <canvas id="barChart" class="w-full h-full"></canvas>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <p class="text-2xl font-semibold my-2 text-center mt-8">Grafik Pendapatan</p>
+    <div id="chart"></div>
+
+<script>
+    var options = {
+  chart: {
+    type: 'line'
+  },
+  series: [{
+    name: 'sales',
+    data: [30,40,35,50,49,60,70,91,125]
+  }],
+  xaxis: {
+    categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
+  }
+}
+
+var chart = new ApexCharts(document.querySelector("#chart"), options);
+
+chart.render();
+</script>
 @endsection

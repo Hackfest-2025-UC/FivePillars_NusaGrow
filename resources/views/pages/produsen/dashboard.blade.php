@@ -1,4 +1,4 @@
-@extends('layouts.produsen')
+@extends('layouts.master_layout_admin')
 @section('content')
 <section class="py-16">
     <div class="relative overflow-x-auto bg-white p-5 shadow-md sm:rounded-lg">

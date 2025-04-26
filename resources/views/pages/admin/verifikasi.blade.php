@@ -1,4 +1,4 @@
-@extends('layouts.template')
+@extends('layouts.admin')
 
 @section('content')
     <h1 class="text-3xl mt-14 mb-6 font-bold">Verifikasi</h1>
@@ -32,13 +32,13 @@
                                 Nama User
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Nama Perusahaan
-                            </th>
-                            <th scope="col" class="px-6 py-3">
                                 Nama Kebutuhan
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 Jumlah Kebutuhan
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Status
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 Aksi
@@ -46,36 +46,50 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
-                            <th scope="row"
-                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                1.
-                            </th>
-                            <td class="px-6 py-4">
-                                Farhan
-                            </td>
-                            <td class="px-6 py-4">
-                                Upylon
-                            </td>
-                            <td class="px-6 py-4">
-                                Jalan sini
-                            </td>
-                            <td class="px-6 py-4">
-                                10
-                            </td>
-                            <td class="px-6 py-4">
-                                <div class="flex items-center space-x-2">
-                                    <a href="#"
-                                        class="font-medium text-blue-600 border-2 border-blue-600 px-3 py-1.5 rounded-md hover:bg-blue-600 hover:text-white">
-                                        <i class="ri-check-line text-xl"></i>
-                                    </a>
-                                    <a href="#"
-                                        class="font-medium text-red-600 border-2 border-red-600 px-3 py-1.5 rounded-md hover:bg-red-600 hover:text-white">
-                                        <i class="ri-close-line text-xl"></i>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
+                        @foreach ($kebutuhan_produsen as $kebutuhan)
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+                                <th scope="row"
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    {{ $loop->iteration }}
+                                </th>
+                                <td class="px-6 py-4">
+                                    {{ $kebutuhan->produsen->nama_produsen }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $kebutuhan->nama_kebutuhan }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $kebutuhan->jumlah_kebutuhan }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $kebutuhan->status }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center space-x-2">
+                                        <form
+                                            action="{{ route('admin.verifikasi.statusKebutuhan-terima', $kebutuhan->id_kebutuhan_produsen) }}"
+                                            method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            <button type="submit"
+                                                class="font-medium text-blue-600 border-2 border-blue-600 px-3 py-1.5 rounded-md hover:bg-blue-600 hover:text-white">
+                                                <i class="ri-check-line text-xl"></i>
+                                            </button>
+                                        </form>
+                                        <form
+                                            action="{{ route('admin.verifikasi.statusKebutuhan-tolak', $kebutuhan->id_kebutuhan_produsen) }}"
+                                            method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            <button type="submit"
+                                                class="font-medium text-red-600 border-2 border-red-600 px-3 py-1.5 rounded-md hover:bg-red-600 hover:text-white">
+                                                <i class="ri-close-line text-xl"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -93,16 +107,19 @@
                                 No
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Nama User
+                                Nama Supplier
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Nama Perusahaan
+                                Nama Produk
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Nama Kebutuhan
+                                Gambar Produk
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Jumlah Kebutuhan
+                                Deskripsi Produk
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Harga Produk
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 Status
@@ -113,38 +130,56 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- @foreach ($kebutuhan_perusahaan as $kebutuhan) --}}
+                        @foreach ($produk as $p)
                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
                                 <th scope="row"
                                     class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    {{-- {{ $loop->iteration }} --}}
+                                    {{ $loop->iteration }}
                                 </th>
                                 <td class="px-6 py-4">
-                                    {{-- {{ $kebutuhan->user->name }} --}}
+                                    {{ $p->users->nama }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    Upylon
+                                    {{ $p->deskripsi_produk }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    Jalan sini
+                                    {{ $p->gambar_produk }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    10
+                                    {{ $p->deskripsi_produk }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $p->harga_produk }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $p->status }}
                                 </td>
                                 <td class="px-6 py-4">
                                     <div class="flex items-center space-x-2">
-                                        <a href="#"
-                                            class="font-medium text-blue-600 border-2 border-blue-600 px-3 py-1.5 rounded-md hover:bg-blue-600 hover:text-white">
-                                            <i class="ri-check-line text-xl"></i>
-                                        </a>
-                                        <a href="#"
-                                            class="font-medium text-red-600 border-2 border-red-600 px-3 py-1.5 rounded-md hover:bg-red-600 hover:text-white">
-                                            <i class="ri-close-line text-xl"></i>
-                                        </a>
+                                        <form
+                                            action="{{ route('admin.verifikasi.statusProduk-terima', $p->id_produk) }}"
+                                            method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            <button type="submit"
+                                                class="font-medium text-blue-600 border-2 border-blue-600 px-3 py-1.5 rounded-md hover:bg-blue-600 hover:text-white">
+                                                <i class="ri-check-line text-xl"></i>
+                                            </button>
+                                        </form>
+                                        <form
+                                            action="{{ route('admin.verifikasi.statusProduk-tolak', $p->id_produk) }}"
+                                            method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            <button type="submit"
+                                                class="font-medium text-red-600 border-2 border-red-600 px-3 py-1.5 rounded-md hover:bg-red-600 hover:text-white">
+                                                <i class="ri-close-line text-xl"></i>
+                                            </button>
+                                        </form>
                                     </div>
                                 </td>
                             </tr>
-                        {{-- @endforeach --}}
+                        @endforeach
                     </tbody>
                 </table>
             </div>
