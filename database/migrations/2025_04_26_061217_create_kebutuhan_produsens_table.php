@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('nama_kebutuhan');
             $table->integer('jumlah_kebutuhan');
             $table->integer('latitude');
-            $table->integer('lolingitude');
+            $table->integer('longitude');
+            $table->enum('status', ['diterima', 'ditolak', 'menunggu'])->default('menunggu');
             $table->timestamps();
             $table->foreign('id_produsen')->references('id_produsen')->on('produsens')->onDelete('cascade');
         });

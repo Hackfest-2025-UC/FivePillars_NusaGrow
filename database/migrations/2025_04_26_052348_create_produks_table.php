@@ -20,6 +20,7 @@ return new class extends Migration
             $table->integer('harga_produk');
             $table->integer('latitude');
             $table->integer('lolingitude');
+            $table->enum('status', ['diterima', 'ditolak', 'menunggu'])->default('menunggu');
             $table->timestamps();
             $table->foreign('id_user')->references('id_users')->on('users')->onDelete('cascade');
         });
