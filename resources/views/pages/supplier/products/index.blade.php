@@ -39,8 +39,8 @@
                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <th scope="row"
                             class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white flex items-center gap-3">
-                            <img src="{{ url('storage/' . $produk->gambar_produk) }}" alt="{{ $produk->nama_produk }}"
-                                class="size-12 rounded-full mr-2">
+                            <img src="{{ url('storage/supplier/' . $produk->gambar_produk) }}"
+                                alt="{{ $produk->nama_produk }}" class="size-12 rounded-full mr-2">
                             {{ $produk->nama_produk }}
                         </th>
                         <td class="px-6 py-4">
