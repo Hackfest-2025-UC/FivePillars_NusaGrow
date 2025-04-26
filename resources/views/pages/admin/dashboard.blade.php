@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+<section class="py-16">
     <h2 class="text-3xl font-bold text-gray-800 mb-4">Dashboard</h2>
 
     <!-- Card Welcome -->
@@ -66,4 +67,5 @@
             </div>
         </div>
     </div>
+</section>
 @endsection

@@ -39,7 +39,7 @@ Route::post('/register-produsen', [RegisterProdusenController::class, 'storeRole
 // Route::middleware('auth')->group(function () {
 
     Route::prefix('admin')->group(function () {
-        Route::get('/', [DashboardAdminController::class, 'index'])->name('admin.dashboard');
+        Route::get('/dashboard', [DashboardAdminController::class, 'index'])->name('admin.dashboard');
         Route::get('/verifikasi', [VerifikasiAdminController::class, 'index'])->name('admin.verifikasi');
         Route::put('/verifikasi/kebutuhan/{id_kebutuhan_produsen}/diterima', [VerifikasiAdminController::class, 'updateStatusKebutuhanDiterima'])->name('admin.verifikasi.statusKebutuhan-terima');
         Route::put('/verifikasi/kebutuhan/{id_kebutuhan_produsen}/ditolak', [VerifikasiAdminController::class, 'updateStatusKebutuhanDitolak'])->name('admin.verifikasi.statusKebutuhan-tolak');
@@ -57,6 +57,10 @@ Route::post('/register-produsen', [RegisterProdusenController::class, 'storeRole
         Route::get('/dashboard', [DashboardSupplierController::class, "index"])->name('suplier.dashboard.index');
         Route::get('/products', [ProductSupplierController::class, "index"])->name('suplier.products.index');
         Route::get('/request', [RequestProductSupplierController::class, "index"])->name('suplier.request.index');
+    });
+    Route::prefix('investor')->group(function () {
+        Route::get('/dashboard', [DashboardSupplierController::class, "index"])->name('investor.dashboard.index');
+        Route::get('/products', [ProductSupplierController::class, "index"])->name('investor.products.index');
     });
 // });
 
