@@ -33,7 +33,7 @@ Route::get('/register-produsen', [RegisterProdusenController::class, 'index'])->
 
 // ADMIN
 
-Route::middleware('auth')->group(function () {
+// Route::middleware('auth')->group(function () {
 
     Route::prefix('admin')->middleware('user-role:admin')->group(function () {
         Route::get('/', [DashboardAdminController::class, 'index'])->name('admin.dashboard');
@@ -54,11 +54,11 @@ Route::middleware('auth')->group(function () {
         Route::get('/products', [ProductSupplierController::class, "index"])->name('suplier.products.index');
         Route::get('/request', [RequestProductSupplierController::class, "index"])->name('suplier.request.index');
     });
-});
-
-// Route::get('/', function () {
-//     return view('layouts.template');
 // });
+
+Route::get('/', function () {
+    return view('pages.home');
+});
 // Route::get('/dashboard', function () {
 //     return view('pages.dashboard');
 // });
