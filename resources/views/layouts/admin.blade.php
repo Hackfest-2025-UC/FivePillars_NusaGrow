@@ -24,44 +24,6 @@
     <div class="p-4 sm:ml-64">
         @yield('content')
     </div>
-
-    <!-- Load Chart.js CDN -->
-    {{-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <script>
-        // Pie Chart
-        const pieCtx = document.getElementById('pieChart').getContext('2d');
-        const pieChart = new Chart(pieCtx, {
-            type: 'pie',
-            data: {
-                labels: ['User Terdaftar', 'Belum Verifikasi'],
-                datasets: [{
-                    label: 'Jumlah User',
-                    data: [{{ $total_user }}, 90], // Sesuaikan dengan datamu
-                    backgroundColor: ['#3B82F6', '#EF4444'],
-                    hoverOffset: 4
-                }]
-            }
-        });
-
-        // Bar Chart
-        const barCtx = document.getElementById('barChart').getContext('2d');
-        const barChart = new Chart(barCtx, {
-            type: 'bar',
-            data: {
-                labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei'],
-                datasets: [{
-                    label: 'Pendapatan (Rp)',
-                    data: [15000, 25000, 50000, 35000, 89000], // Contoh data
-                    backgroundColor: '#10B981'
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-            }
-        });
-    </script> --}}
 </body>
 
 </html>

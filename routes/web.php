@@ -40,11 +40,7 @@ Route::post('/register-produsen', [RegisterProdusenController::class, 'storeRole
 // Route::middleware('auth')->group(function () {
 
     Route::prefix('admin')->group(function () {
-<<<<<<< HEAD
         Route::get('/', [DashboardAdminController::class, 'index'])->name('admin.dashboard');
-=======
-        Route::get('/dashboard', [DashboardAdminController::class, 'index'])->name('admin.dashboard');
->>>>>>> 1d99f6be72f44163eafc17bb825f94a0c6782710
         Route::get('/verifikasi', [VerifikasiAdminController::class, 'index'])->name('admin.verifikasi');
         Route::put('/verifikasi/kebutuhan/{id_kebutuhan_produsen}/diterima', [VerifikasiAdminController::class, 'updateStatusKebutuhanDiterima'])->name('admin.verifikasi.statusKebutuhan-terima');
         Route::put('/verifikasi/kebutuhan/{id_kebutuhan_produsen}/ditolak', [VerifikasiAdminController::class, 'updateStatusKebutuhanDitolak'])->name('admin.verifikasi.statusKebutuhan-tolak');
