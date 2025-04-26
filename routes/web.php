@@ -9,6 +9,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\admin\DashboardAdminController;
 use App\Http\Controllers\admin\VerifikasiAdminController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\Produsen\ProdusenController;
 use App\Http\Controllers\RegisterProdusenController;
 use App\Http\Controllers\supplier\DashboardSupplierController;
 use App\Http\Controllers\supplier\ProductSupplierController;
@@ -41,10 +42,9 @@ Route::middleware('auth')->group(function () {
     });
     
     Route::prefix('produsen')->group(function () {
-        Route::get('/cari-suplier', [CariSuplierController::class, "index"])->name('produsen.cari-supplier.index');
         Route::get('/dashboard', [DashboardController::class, "index"])->name('produsen.dashboard.index');
-        Route::get('/cari-suplier', [CariSuplierController::class, "index"])->name('produsen.cari-supplier.index');
-        Route::get('melihat-penawaran', [MelihatPenawaranController::class, "index"])->name('produsen.melihat-penawaran.index');
+        Route::get('/cari-suplier', [ProdusenController::class, "cariSuplier"])->name('produsen.cari-supplier.index');
+        Route::get('/melihat-penawaran', [ProdusenController::class, "penawaran"])->name('produsen.melihat-penawaran.index');
     });
     Route::prefix('supplier')->group(function () {
         Route::get('/dashboard', [DashboardSupplierController::class, "index"])->name('suplier.dashboard.index');
