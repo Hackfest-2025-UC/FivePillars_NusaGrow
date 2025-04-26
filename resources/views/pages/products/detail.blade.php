@@ -35,14 +35,14 @@
         </div>
     </section>
     <hr class="border-t border-gray-200" />
-    <p class="text-2xl font-semibold my-2">Testimoni</p>
-    <section class="grid grid-cols-1 md:grid-cols-3 gap-4 my-16">
+    <p class="text-2xl font-semibold my-2 text-center mt-8">Testimoni</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16 px-18">
         <div class="flex flex-col p-4 bg-white rounded-lg shadow-md">
             <div class="flex items-center justify-between">
                 <p class="text-sm text-gray-400">20 Oktober 2022</p>
                 <i class="ri-quote-line text-2xl"></i>
             </div>
-            <p class="mt-4 text-lg text-gray-600">"Saya sangat puas dengan produk dari NusaGrow. Kualitasnya sangat bagus
+            <p class="mt-4 text-lg text-gray-600 italic">"Saya sangat puas dengan produk dari NusaGrow. Kualitasnya sangat bagus
                 dan harganya terjangkau."</p>
             <p class="mt-4 text-lg font-semibold">- Rizky</p>
         </div>
@@ -51,18 +51,18 @@
                 <p class="text-sm text-gray-400">20 Oktober 2022</p>
                 <i class="ri-quote-line text-2xl"></i>
             </div>
-            <p class="mt-4 text-lg text-gray-600">"Saya sangat puas dengan produk dari NusaGrow. Kualitasnya sangat bagus
+            <p class="mt-4 text-lg text-gray-600 italic">"Saya sangat puas dengan produk dari NusaGrow. Kualitasnya sangat bagus
                 dan harganya terjangkau."</p>
             <p class="mt-4 text-lg font-semibold">- Rizky</p>
         </div>
         <div class="flex flex-col p-4 bg-white rounded-lg shadow-md">
             <div class="flex items-center justify-between">
-                <p class="text-sm text-gray-400">20 Oktober 2022</p>
+                <p class="text-sm text-gray-400 italic">20 Oktober 2022</p>
                 <i class="ri-quote-line text-2xl"></i>
             </div>
             <p class="mt-4 text-lg text-gray-600">"Saya sangat puas dengan produk dari NusaGrow. Kualitasnya sangat bagus
                 dan harganya terjangkau."</p>
             <p class="mt-4 text-lg font-semibold">- Rizky</p>
         </div>
-    </section>
+    </div>
 @endsection
