@@ -15,4 +15,9 @@ class Produsen extends Model
         'nama_produsen',
         'alamat_produsen',
     ];
+
+    public function perusahaan()
+    {
+        return $this->hasOne(Perusahaan::class, 'produsen_id');
+    }
 }
