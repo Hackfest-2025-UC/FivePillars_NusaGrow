@@ -1,4 +1,4 @@
-@extends('layouts.template')
+@extends('layouts.produsen')
 @section('content')
 
 <div class="relative overflow-x-auto">
@@ -35,7 +35,7 @@
                 <td class="px-6 py-4">
                     {{  $penawaran->deskripsi_penawaran }}
                 </td>
-            </tr>          
+            </tr>
             @endforeach
         </tbody>
     </table>

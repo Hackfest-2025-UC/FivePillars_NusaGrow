@@ -9,6 +9,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('pages.pengolahan.dashboard');
+        return view('pages.produsen.dashboard');
     }
 }
