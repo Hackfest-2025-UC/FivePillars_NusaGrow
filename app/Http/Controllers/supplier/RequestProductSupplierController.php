@@ -5,6 +5,7 @@ namespace App\Http\Controllers\supplier;
 use App\Http\Controllers\Controller;
 use App\Models\Permintaan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RequestProductSupplierController extends Controller
 {
