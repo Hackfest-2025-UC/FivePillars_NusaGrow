@@ -51,3 +51,6 @@ php artisan serve
 -   [@hakimlutfi46](https://github.com/hakimlutfi46)
 -   [@rayasya](https://github.com/rayasya)
 -   [@adzazarif](https://github.com/adzazarif)
+
+## Repo AI
+https://github.com/Hackfest-2025-UC/FivePillars_NusaGrow_AI
