@@ -60,6 +60,13 @@
                                 <button class="font-medium text-red-600 dark:text-red-500 hover:underline"
                                     data-modal-target="default-modal" data-modal-toggle="default-modal"
                                     type="button">Hapus</button>
+                                <div class="flex items-center gap-2 mb-2">
+                                    <button
+                                        class="py-2 px-4 font-medium text-white bg-gradient-to-r from-green-500  to-blue-500 rounded-full hover:bg-gradient-to-r hover:from-green-500 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"><i
+                                            class="ri-bard-line"></i>
+                                        Boost Post
+                                    </button>
+                                </div>
                             </div>
                         </td>
                     </tr>
