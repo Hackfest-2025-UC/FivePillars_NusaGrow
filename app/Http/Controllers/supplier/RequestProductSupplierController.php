@@ -13,7 +13,7 @@ class RequestProductSupplierController extends Controller
     {
         $permintaans = Permintaan::with([
             'kebutuhan_produsen.produsen',
-            'produk.user'
+            'produk.users'
         ])
             ->whereHas('produk', function ($query) {
                 $query->where('id_user', 3);
