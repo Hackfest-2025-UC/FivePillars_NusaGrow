@@ -5,6 +5,7 @@ namespace App\Http\Controllers\supplier;
 use App\Http\Controllers\Controller;
 use App\Models\Produk;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductSupplierController extends Controller
 {
@@ -13,7 +14,7 @@ class ProductSupplierController extends Controller
      */
     public function index()
     {
-        $produks = Produk::with('user')->get();
+        $produks = Produk::with('users')->get();
         return view('pages.supplier.products.index', compact('produks'));
     }
 
@@ -48,7 +49,7 @@ class ProductSupplierController extends Controller
         }
 
         $produk = Produk::create([
-            'id_user' => 3, //jangan lupa ganti auth
+            'id_user' => 3,
             'nama_produk' => $request->nama_produk,
             'harga_produk' => $request->harga,
             'deskripsi_produk' => $request->deskripsi,

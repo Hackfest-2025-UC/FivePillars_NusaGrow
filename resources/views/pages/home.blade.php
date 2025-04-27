@@ -30,12 +30,13 @@
             </button>
         </div>
 
-        <ul class="flex gap-10 lg:flex hidden">
+        <ul class="flex gap-10 lg:flex items-center hidden">
             <li><a href="" class="hover:text-[#28CB8B]">Home</a></li>
             <li><a href="" class="hover:text-[#28CB8B]">Tentang Kami</a></li>
             <li><a href="" class="hover:text-[#28CB8B]">Layanan</a></li>
             <li><a href="" class="hover:text-[#28CB8B]">Testimoni</a></li>
             <li><a href="" class="hover:text-[#28CB8B]">Hubungi Kami</a></li>
+            <li><a href="/login" class="block py-2 px-3 text-white bg-[#28CB8B] rounded-sm hover:text-black">Login</a></li>
         </ul>
 
         <!-- Mobile Menu -->
@@ -45,6 +46,7 @@
             <li><a href="" class="block text-lg hover:text-[#28CB8B]">Layanan</a></li>
             <li><a href="" class="block text-lg hover:text-[#28CB8B]">Testimoni</a></li>
             <li><a href="" class="block text-lg hover:text-[#28CB8B]">Hubungi Kami</a></li>
+            <li><a href="/login" class="block py-2 px-3 text-white bg-[#28CB8B] rounded-sm hover:text-black">Login</a></li>
         </ul>
     </nav>
 
@@ -55,7 +57,7 @@
             <p class="mt-4 text-lg sm:text-xl" data-aos="fade-right">Kami menghubungkan supplier bahan mentah dengan produsen secara efektif
                 dan berkelanjutan.</p>
             <a class="bg-[#28CB8B] hover:bg-green-600 mt-6 transition-all text-white py-2 px-6 rounded-md inline-block items-center gap-2"
-                href="" data-aos="fade-right">Gabung Sekarang</a>
+                href="/products" data-aos="fade-right">Gabung Sekarang</a>
         </div>
 
         <img class="w-full sm:w-1/2 mt-8 lg:mt-0" src="{{ asset('image/hero.png') }}" alt="Hero Image" data-aos="fade-left">
@@ -125,13 +127,21 @@
         </div>
     </div>
 
+    <style>
+        .swiper-slide{
+            width: 400px!important;
+        }
+        .swiper{
+            padding: 20px 50px;
+        }
+    </style>
     <h1 class="text-3xl font-bold text-center my-20" data-aos="fade-down">Testimoni Layanan</h1>
-    <div class="swiper mySwiper">
+    <div class="swiper py-20 mySwiper">
         <div class="swiper-wrapper px-12">
             <!-- Testimonial 1 -->
             <div class="swiper-slide">
                 <div data-aos="fade-down"
-                    class="flex flex-col p-4 bg-gray-200 rounded-lg shadow-xl hover:shadow-xl transition-all duration-300">
+                    class="flex flex-col p-4 bg-slate-50 rounded-lg shadow-xl hover:shadow-xl transition-all duration-300">
                     <div class="flex items-center justify-between">
                         <p class="text-sm text-gray-400">20 Oktober 2022</p>
                         <i class="ri-quote-line text-2xl text-[#28CB8B]"></i>
@@ -143,9 +153,9 @@
             </div>
 
             <!-- Testimonial 2 -->
-            <div class="swiper-slide">
+            <div class="swiper-slide ">
                 <div data-aos="fade-down"
-                    class="flex flex-col p-4 bg-gray-200 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                    class="flex flex-col p-4 bg-slate-50 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
                     <div class="flex items-center justify-between">
                         <p class="text-sm text-gray-400">20 Oktober 2022</p>
                         <i class="ri-quote-line text-2xl text-[#28CB8B]"></i>
@@ -159,7 +169,7 @@
             <!-- Testimonial 3 -->
             <div class="swiper-slide">
                 <div data-aos="fade-down"
-                    class="flex flex-col p-4 bg-gray-200 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                    class="flex flex-col p-4 bg-slate-50 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
                     <div class="flex items-center justify-between">
                         <p class="text-sm text-gray-400 italic">20 Oktober 2022</p>
                         <i class="ri-quote-line text-2xl text-[#28CB8B]"></i>
@@ -173,7 +183,7 @@
             <!-- Testimonial 4 -->
             <div class="swiper-slide">
                 <div data-aos="fade-down"
-                    class="flex flex-col p-4 bg-gray-200 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                    class="flex flex-col p-4 bg-slate-50 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
                     <div class="flex items-center justify-between">
                         <p class="text-sm text-gray-400 italic">20 Oktober 2022</p>
                         <i class="ri-quote-line text-2xl text-[#28CB8B]"></i>
@@ -331,26 +341,13 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
         var swiper = new Swiper('.mySwiper', {
-            slidesPerView: 1, // Default for mobile devices
-            spaceBetween: 10, // Space between cards
+            slidesPerView: 3, // Default for mobile devices
+            spaceBetween: 20, // Space between cards
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
             },
-            breakpoints: {
-                // When the viewport width is >= 640px, show 2 slides
-                640: {
-                    slidesPerView: 1,
-                },
-                // When the viewport width is >= 768px, show 2 slides
-                768: {
-                    slidesPerView: 2,
-                },
-                // When the viewport width is >= 1024px, show 3 slides
-                1024: {
-                    slidesPerView: 3,
-                },
-            }
+        
         });
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

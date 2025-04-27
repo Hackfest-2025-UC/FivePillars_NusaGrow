@@ -21,8 +21,9 @@ class Produk extends Model
         'status',
     ];
 
-    public function user()
+    
+    public function users()
     {
-        return $this->belongsTo(User::class, 'id_users');
+        return $this->belongsTo(User::class, 'id_user', 'id_users');
     }
 }

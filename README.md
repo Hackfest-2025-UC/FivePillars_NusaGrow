@@ -1,61 +1,56 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# NusaGrow
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+NusaGrow adalah platform digital yang menghubungkan supplier bahan mentah dengan para produsen secara langsung, cepat, dan efisien. Dengan NusaGrow, supplier dapat memasarkan produk bahan mentah mereka ke jaringan produsen yang luas, sementara produsen dapat dengan mudah menemukan sumber bahan berkualitas untuk memenuhi kebutuhan produksi mereka.
+Bertujuan untuk mempercepat rantai pasok, meningkatkan kemitraan lokal, dan mendorong pertumbuhan ekonomi sektor pengolahan, NusaGrow menjadi solusi ideal untuk mempertemukan kebutuhan bahan mentah dengan sumbernya, dalam satu aplikasi yang mudah digunakan.
 
-## About Laravel
+## Installation
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Install my-project with npm
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+```bash
+  npm install my-project
+  cd my-project
+```
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Run Locally
 
-## Learning Laravel
+Ikuti langkah-langkah berikut untuk menjalankan aplikasi:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+#### 1. Install dependencies frontend dan backend:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+```bash
+npm install
+composer install
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+#### 2. Jalankan migrasi database dan seeding data:
 
-## Laravel Sponsors
+```bash
+php artisan migrate:fresh
+php artisan db:seed
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+#### 3. Jalankan aplikasi:
 
-### Premium Partners
+```bash
+npm run dev
+php artisan serve
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development/)**
-- **[Active Logic](https://activelogic.com)**
+```
 
-## Contributing
+## Tech Stack
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+**Website:** Laravel 12, MySQL, JavaScript, TailwindCSS
 
-## Code of Conduct
+**AI:** Python, Flask, STS (Sentences Transformer Similarity)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Authors
 
-## Security Vulnerabilities
+-   [@ncflsy](https://github.com/ncflsy)
+-   [@farhanariyanto03](https://github.com/farhanariyanto03)
+-   [@hakimlutfi46](https://github.com/hakimlutfi46)
+-   [@rayasya](https://github.com/rayasya)
+-   [@adzazarif](https://github.com/adzazarif)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Repo AI
+https://github.com/Hackfest-2025-UC/FivePillars_NusaGrow_AI

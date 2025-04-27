@@ -54,6 +54,6 @@ class User extends Authenticatable
   
     public function produk()
     {
-        return $this->hasOne(Produk::class);
+        return $this->hasOne(Produk::class, 'id_user', 'id_users');
     }
 }
