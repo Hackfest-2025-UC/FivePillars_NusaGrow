@@ -49,7 +49,7 @@ class ProductSupplierController extends Controller
         }
 
         $produk = Produk::create([
-            'id_user' => Auth::user()->id,
+            'id_user' => 3,
             'nama_produk' => $request->nama_produk,
             'harga_produk' => $request->harga,
             'deskripsi_produk' => $request->deskripsi,

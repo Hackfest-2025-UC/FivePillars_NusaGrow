@@ -16,7 +16,7 @@ class RequestProductSupplierController extends Controller
             'produk.user'
         ])
             ->whereHas('produk', function ($query) {
-                $query->where('id_user', Auth::user()->id);
+                $query->where('id_user', 3);
             })
             ->get();
         return view('pages.supplier.request.index', compact('permintaans'));
